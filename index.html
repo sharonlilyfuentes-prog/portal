@@ -1,0 +1,2389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PetGenius – Plataforma Inteligente para Mascotas | Honduras</title>
+<meta name="description" content="PetGenius: la plataforma inteligente de cuidado y bienestar para tus mascotas en Honduras. Alimentos, grooming, salud y más.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Clash+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- Start of HubSpot Embed Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/51498200.js"></script>
+<!-- End of HubSpot Embed Code -->
+
+<style>
+/* ═══════════════════════════════════════════
+   CSS VARIABLES & RESET
+═══════════════════════════════════════════ */
+:root {
+  --primary: #00C896;
+  --primary-dark: #00A87A;
+  --primary-light: #E8FFF8;
+  --accent: #FF6B35;
+  --accent2: #7C3AED;
+  --navy: #0D1B2A;
+  --navy2: #1A2E42;
+  --slate: #2D4059;
+  --text: #1A2E42;
+  --text-muted: #607D8B;
+  --white: #FFFFFF;
+  --light: #F7FFFE;
+  --border: #E2EEF0;
+  --card-bg: #FFFFFF;
+  --shadow-sm: 0 2px 12px rgba(0,200,150,0.08);
+  --shadow-md: 0 8px 32px rgba(0,0,0,0.10);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.14);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-xl: 28px;
+  --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  --font-display: 'Clash Display', 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-body);
+  background: var(--light);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; font-family: var(--font-body); border: none; outline: none; }
+input, textarea, select { font-family: var(--font-body); }
+ul, ol { list-style: none; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--light); }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
+
+/* ═══════════════════════════════════════════
+   UTILITY CLASSES
+═══════════════════════════════════════════ */
+.container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+.section-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--primary-light); color: var(--primary-dark);
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 6px 16px; border-radius: 99px; margin-bottom: 16px;
+}
+.section-title {
+  font-family: var(--font-display); font-size: clamp(2rem,4vw,3rem);
+  font-weight: 700; color: var(--navy); line-height: 1.15; margin-bottom: 12px;
+}
+.section-sub {
+  font-size: 1.05rem; color: var(--text-muted); max-width: 580px; line-height: 1.7;
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; border-radius: 99px; font-weight: 700; font-size: 0.95rem;
+  transition: var(--transition); cursor: pointer; border: none;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff; box-shadow: 0 4px 20px rgba(0,200,150,0.35);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,200,150,0.45); }
+.btn-outline {
+  background: transparent; color: var(--primary); border: 2px solid var(--primary);
+}
+.btn-outline:hover { background: var(--primary); color: #fff; }
+.btn-accent {
+  background: linear-gradient(135deg, var(--accent), #FF8C5A);
+  color: #fff; box-shadow: 0 4px 20px rgba(255,107,53,0.3);
+}
+.btn-accent:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,107,53,0.4); }
+.btn-dark { background: var(--navy); color: #fff; }
+.btn-dark:hover { background: var(--slate); }
+.btn-wpp {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: #fff; box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+}
+.btn-wpp:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(37,211,102,0.45); }
+.badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 4px 12px; border-radius: 99px; font-size: 0.72rem; font-weight: 700;
+}
+.badge-hot { background: #FFF0E8; color: var(--accent); }
+.badge-new { background: #EDE9FF; color: var(--accent2); }
+.badge-sale { background: #DCFCE7; color: #16A34A; }
+.badge-primary { background: var(--primary-light); color: var(--primary-dark); }
+
+/* Fade-in animation */
+.fade-up {
+  opacity: 0; transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* ═══════════════════════════════════════════
+   NAVBAR
+═══════════════════════════════════════════ */
+#navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(255,255,255,0.82);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0,200,150,0.1);
+  transition: var(--transition);
+}
+#navbar.scrolled {
+  background: rgba(255,255,255,0.97);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+}
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 24px; max-width: 1280px; margin: 0 auto;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px; font-family: var(--font-display);
+  font-size: 1.5rem; font-weight: 700; color: var(--navy);
+}
+.nav-logo span { color: var(--primary); }
+.logo-icon {
+  width: 40px; height: 40px; background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border-radius: 12px; display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; color: #fff;
+}
+.nav-links {
+  display: flex; align-items: center; gap: 4px;
+}
+.nav-links a {
+  padding: 8px 14px; border-radius: 99px; font-size: 0.85rem; font-weight: 600;
+  color: var(--slate); transition: var(--transition); white-space: nowrap;
+}
+.nav-links a:hover, .nav-links a.active {
+  color: var(--primary-dark); background: var(--primary-light);
+}
+.nav-actions { display: flex; align-items: center; gap: 10px; }
+.cart-btn {
+  position: relative; background: var(--primary-light); color: var(--primary-dark);
+  border: none; border-radius: 99px; padding: 10px 20px;
+  font-weight: 700; font-size: 0.85rem; display: flex; align-items: center; gap: 8px;
+  transition: var(--transition); cursor: pointer;
+}
+.cart-btn:hover { background: var(--primary); color: #fff; }
+.cart-count {
+  position: absolute; top: -4px; right: -4px;
+  background: var(--accent); color: #fff;
+  width: 20px; height: 20px; border-radius: 50%;
+  font-size: 0.7rem; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  display: none;
+}
+.hamburger {
+  display: none; flex-direction: column; gap: 5px; cursor: pointer;
+  padding: 8px; border-radius: 8px; transition: var(--transition);
+  background: none; border: none;
+}
+.hamburger span {
+  display: block; width: 24px; height: 2px; background: var(--navy);
+  border-radius: 2px; transition: var(--transition);
+}
+.mobile-menu {
+  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(13,27,42,0.97); z-index: 999; flex-direction: column;
+  align-items: center; justify-content: center; gap: 12px;
+  padding: 80px 24px 40px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  color: #fff; font-size: 1.2rem; font-weight: 600; padding: 14px 32px;
+  border-radius: 12px; width: 100%; text-align: center;
+  border: 1px solid rgba(255,255,255,0.08); transition: var(--transition);
+}
+.mobile-menu a:hover { background: var(--primary); border-color: var(--primary); }
+.mobile-close {
+  position: absolute; top: 20px; right: 24px; color: #fff; font-size: 1.5rem;
+  background: none; border: none; cursor: pointer;
+}
+
+/* ═══════════════════════════════════════════
+   HERO SECTION
+═══════════════════════════════════════════ */
+#inicio {
+  min-height: 100vh; position: relative; overflow: hidden;
+  display: flex; align-items: center;
+  background: linear-gradient(135deg, #0D1B2A 0%, #1A3A4A 40%, #0A2A1E 100%);
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background: url('https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=1600&q=80') center/cover no-repeat;
+  opacity: 0.18;
+}
+.hero-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(135deg, rgba(13,27,42,0.92) 0%, rgba(0,100,70,0.6) 60%, rgba(13,27,42,0.7) 100%);
+}
+.hero-particles { position: absolute; inset: 0; z-index: 2; overflow: hidden; }
+.hero-content { position: relative; z-index: 3; padding: 120px 0 80px; }
+.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(0,200,150,0.15); border: 1px solid rgba(0,200,150,0.3);
+  color: var(--primary); padding: 8px 18px; border-radius: 99px;
+  font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  margin-bottom: 24px; animation: fadeInDown 0.8s ease both;
+}
+.hero-h1 {
+  font-family: var(--font-display); font-size: clamp(2.5rem,5vw,4rem);
+  font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 20px;
+  animation: fadeInUp 0.9s ease 0.1s both;
+}
+.hero-h1 span { color: var(--primary); }
+.hero-sub {
+  font-size: 1.1rem; color: rgba(255,255,255,0.75); max-width: 500px;
+  line-height: 1.75; margin-bottom: 36px;
+  animation: fadeInUp 0.9s ease 0.2s both;
+}
+.hero-btns { display: flex; gap: 16px; flex-wrap: wrap; animation: fadeInUp 0.9s ease 0.3s both; }
+.hero-trust {
+  display: flex; gap: 32px; margin-top: 48px; flex-wrap: wrap;
+  animation: fadeInUp 0.9s ease 0.4s both;
+}
+.trust-item { display: flex; align-items: center; gap: 10px; }
+.trust-icon {
+  width: 40px; height: 40px; background: rgba(0,200,150,0.15);
+  border: 1px solid rgba(0,200,150,0.25); border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--primary); font-size: 1rem;
+}
+.trust-info { display: flex; flex-direction: column; }
+.trust-num { font-size: 1.1rem; font-weight: 800; color: #fff; line-height: 1; }
+.trust-label { font-size: 0.72rem; color: rgba(255,255,255,0.5); }
+
+/* Hero cards */
+.hero-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; animation: fadeInRight 1s ease 0.3s both; }
+.hero-card {
+  background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(12px); border-radius: 20px; padding: 24px;
+  transition: var(--transition); cursor: default;
+}
+.hero-card:hover { background: rgba(0,200,150,0.1); border-color: rgba(0,200,150,0.3); transform: translateY(-4px); }
+.hero-card-icon {
+  width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; margin-bottom: 14px;
+}
+.hero-card h3 { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+.hero-card p { font-size: 0.78rem; color: rgba(255,255,255,0.55); line-height: 1.5; }
+
+/* ═══════════════════════════════════════════
+   QUIÉNES SOMOS
+═══════════════════════════════════════════ */
+#quienes-somos { padding: 100px 0; background: #fff; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.about-visual { position: relative; }
+.about-img-wrap {
+  border-radius: var(--radius-xl); overflow: hidden;
+  box-shadow: var(--shadow-lg); position: relative;
+}
+.about-img-wrap img { width: 100%; height: 440px; object-fit: cover; }
+.about-badge-float {
+  position: absolute; bottom: -20px; right: -20px;
+  background: var(--primary); color: #fff; padding: 20px 24px;
+  border-radius: 20px; box-shadow: var(--shadow-md); text-align: center;
+}
+.about-badge-float .num { font-size: 2rem; font-weight: 800; line-height: 1; }
+.about-badge-float .txt { font-size: 0.75rem; opacity: 0.85; }
+.about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+.value-card {
+  background: var(--light); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 20px; transition: var(--transition);
+}
+.value-card:hover { border-color: var(--primary); background: var(--primary-light); }
+.value-card i { font-size: 1.4rem; color: var(--primary); margin-bottom: 10px; display: block; }
+.value-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+.value-card p { font-size: 0.78rem; color: var(--text-muted); }
+
+/* Stats */
+.stats-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; margin-top: 60px; }
+.stat-card {
+  text-align: center; background: var(--light); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 28px 16px; transition: var(--transition);
+}
+.stat-card:hover { border-color: var(--primary); box-shadow: var(--shadow-sm); }
+.stat-num {
+  font-family: var(--font-display); font-size: 2.4rem; font-weight: 800;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; line-height: 1;
+}
+.stat-label { font-size: 0.8rem; color: var(--text-muted); margin-top: 6px; }
+
+/* ═══════════════════════════════════════════
+   SERVICIOS INTELIGENTES
+═══════════════════════════════════════════ */
+#servicios { padding: 100px 0; background: linear-gradient(180deg, #F7FFFE 0%, #EAF9F4 100%); }
+.servicios-header { text-align: center; margin-bottom: 60px; }
+.servicios-header .section-sub { margin: 0 auto; }
+.services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.service-card {
+  background: #fff; border: 1px solid var(--border); border-radius: var(--radius-xl);
+  padding: 36px 28px; transition: var(--transition); position: relative; overflow: hidden;
+}
+.service-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+  transform: scaleX(0); transform-origin: left; transition: var(--transition);
+}
+.service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: var(--primary); }
+.service-card:hover::before { transform: scaleX(1); }
+.service-icon {
+  width: 64px; height: 64px; background: linear-gradient(135deg, var(--primary-light), #C8FFF0);
+  border-radius: 18px; display: flex; align-items: center; justify-content: center;
+  font-size: 1.7rem; color: var(--primary-dark); margin-bottom: 22px; transition: var(--transition);
+}
+.service-card:hover .service-icon { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: #fff; }
+.service-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+.service-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.65; }
+.service-tag {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: var(--primary-light); color: var(--primary-dark);
+  font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 99px; margin-top: 16px;
+}
+
+/* ═══════════════════════════════════════════
+   PROMOCIONES
+═══════════════════════════════════════════ */
+#promociones { padding: 100px 0; background: var(--navy); }
+.promo-header { text-align: center; margin-bottom: 60px; }
+.promo-header .section-title { color: #fff; }
+.promo-header .section-sub { color: rgba(255,255,255,0.6); margin: 0 auto; }
+.promo-header .section-tag { background: rgba(0,200,150,0.15); color: var(--primary); border: 1px solid rgba(0,200,150,0.2); }
+.promo-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.promo-card {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-xl); overflow: hidden; transition: var(--transition); position: relative;
+}
+.promo-card:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(0,0,0,0.4); border-color: rgba(0,200,150,0.3); }
+.promo-img-wrap { position: relative; height: 220px; overflow: hidden; }
+.promo-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.promo-card:hover .promo-img-wrap img { transform: scale(1.07); }
+.promo-badges {
+  position: absolute; top: 16px; left: 16px; display: flex; flex-direction: column; gap: 6px;
+}
+.promo-discount {
+  position: absolute; top: 16px; right: 16px;
+  background: var(--accent); color: #fff; width: 56px; height: 56px;
+  border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 0.9rem; line-height: 1; box-shadow: 0 4px 14px rgba(255,107,53,0.4);
+}
+.promo-discount span { font-size: 0.6rem; font-weight: 600; opacity: 0.85; }
+.promo-body { padding: 22px; }
+.promo-body h3 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.promo-body p { font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-bottom: 14px; }
+.promo-prices { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.price-old { font-size: 0.85rem; color: rgba(255,255,255,0.35); text-decoration: line-through; }
+.price-new { font-size: 1.3rem; font-weight: 800; color: var(--primary); }
+.countdown-wrap { display: flex; gap: 8px; margin-bottom: 18px; align-items: center; }
+.countdown-label { font-size: 0.7rem; color: rgba(255,255,255,0.4); }
+.countdown-box {
+  background: rgba(255,255,255,0.08); border-radius: 8px; padding: 6px 10px;
+  text-align: center; min-width: 44px;
+}
+.countdown-num { font-size: 1rem; font-weight: 800; color: var(--primary); line-height: 1; }
+.countdown-unit { font-size: 0.55rem; color: rgba(255,255,255,0.4); }
+
+/* ═══════════════════════════════════════════
+   MARCAS
+═══════════════════════════════════════════ */
+#marcas { padding: 80px 0; background: #fff; }
+.marcas-header { text-align: center; margin-bottom: 50px; }
+.brands-track-wrap { overflow: hidden; position: relative; }
+.brands-track-wrap::before,
+.brands-track-wrap::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 100px; z-index: 2;
+}
+.brands-track-wrap::before { left: 0; background: linear-gradient(90deg, #fff, transparent); }
+.brands-track-wrap::after { right: 0; background: linear-gradient(-90deg, #fff, transparent); }
+.brands-track { display: flex; gap: 40px; animation: brandScroll 28s linear infinite; width: max-content; }
+.brands-track:hover { animation-play-state: paused; }
+.brand-item {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  padding: 20px 28px; border: 1.5px solid var(--border); border-radius: var(--radius);
+  background: #fff; min-width: 150px; filter: grayscale(0.8); opacity: 0.65;
+  transition: var(--transition); cursor: pointer;
+}
+.brand-item:hover { filter: grayscale(0); opacity: 1; border-color: var(--primary); box-shadow: var(--shadow-sm); }
+.brand-emoji { font-size: 2rem; }
+.brand-name { font-size: 0.8rem; font-weight: 700; color: var(--slate); }
+
+@keyframes brandScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ═══════════════════════════════════════════
+   CATÁLOGO / TIENDA
+═══════════════════════════════════════════ */
+#catalogo { padding: 100px 0; background: var(--light); }
+.catalogo-header { text-align: center; margin-bottom: 50px; }
+.catalog-controls {
+  display: flex; flex-wrap: wrap; gap: 16px; align-items: center;
+  background: #fff; border: 1px solid var(--border); border-radius: var(--radius-xl);
+  padding: 20px 24px; margin-bottom: 36px;
+}
+.search-wrap { position: relative; flex: 1; min-width: 220px; }
+.search-wrap i { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
+#productSearch {
+  width: 100%; padding: 12px 16px 12px 44px; border: 1.5px solid var(--border); border-radius: 99px;
+  font-size: 0.9rem; transition: var(--transition); background: var(--light);
+}
+#productSearch:focus { outline: none; border-color: var(--primary); background: #fff; box-shadow: 0 0 0 3px rgba(0,200,150,0.1); }
+.filter-cats { display: flex; flex-wrap: wrap; gap: 8px; }
+.filter-btn {
+  padding: 9px 18px; border-radius: 99px; font-size: 0.82rem; font-weight: 600;
+  background: var(--light); color: var(--slate); border: 1.5px solid var(--border);
+  transition: var(--transition); cursor: pointer;
+}
+.filter-btn:hover, .filter-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+.price-filter { display: flex; align-items: center; gap: 10px; }
+.price-filter label { font-size: 0.82rem; font-weight: 600; color: var(--text-muted); white-space: nowrap; }
+#priceRange { accent-color: var(--primary); }
+#priceVal { font-size: 0.82rem; font-weight: 700; color: var(--primary-dark); white-space: nowrap; }
+
+.products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px,1fr)); gap: 24px; }
+.product-card {
+  background: #fff; border: 1px solid var(--border); border-radius: var(--radius-xl);
+  overflow: hidden; transition: var(--transition); position: relative;
+}
+.product-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-6px); border-color: var(--primary); }
+.product-img-wrap { position: relative; height: 220px; overflow: hidden; background: var(--light); }
+.product-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.product-card:hover .product-img-wrap img { transform: scale(1.06); }
+.product-badges { position: absolute; top: 14px; left: 14px; display: flex; flex-direction: column; gap: 6px; }
+.quick-view-btn {
+  position: absolute; bottom: 14px; right: 14px; left: 14px;
+  background: rgba(13,27,42,0.85); color: #fff; border: none; border-radius: 99px;
+  padding: 10px; font-size: 0.8rem; font-weight: 700; cursor: pointer;
+  transform: translateY(60px); opacity: 0; transition: var(--transition);
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+.product-card:hover .quick-view-btn { transform: translateY(0); opacity: 1; }
+.product-body { padding: 20px; }
+.product-cat { font-size: 0.72rem; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+.product-name { font-size: 0.97rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; line-height: 1.35; }
+.product-desc { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 14px; line-height: 1.5; }
+.product-price-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.product-price { font-size: 1.2rem; font-weight: 800; color: var(--primary-dark); }
+.product-price-old { font-size: 0.8rem; color: var(--text-muted); text-decoration: line-through; }
+.avail-badge { font-size: 0.7rem; font-weight: 700; padding: 3px 10px; border-radius: 99px; }
+.avail-yes { background: #DCFCE7; color: #16A34A; }
+.avail-no { background: #FEE2E2; color: #DC2626; }
+.product-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.add-cart-btn {
+  flex: 1; background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff; border: none; border-radius: 99px; padding: 11px 16px;
+  font-size: 0.8rem; font-weight: 700; transition: var(--transition);
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+.add-cart-btn:hover { transform: scale(1.03); box-shadow: 0 4px 16px rgba(0,200,150,0.4); }
+.wpp-btn-sm {
+  background: #25D366; color: #fff; border: none; border-radius: 99px; padding: 11px 14px;
+  font-size: 0.9rem; transition: var(--transition); display: flex; align-items: center;
+}
+.wpp-btn-sm:hover { background: #128C7E; }
+.no-results {
+  text-align: center; padding: 60px 20px; color: var(--text-muted); display: none;
+  grid-column: 1/-1;
+}
+.no-results i { font-size: 3rem; margin-bottom: 16px; display: block; }
+
+/* ═══════════════════════════════════════════
+   MODAL PRODUCTO
+═══════════════════════════════════════════ */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 2000;
+  background: rgba(13,27,42,0.75); backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center; padding: 24px;
+  opacity: 0; visibility: hidden; transition: var(--transition);
+}
+.modal-overlay.open { opacity: 1; visibility: visible; }
+.modal-box {
+  background: #fff; border-radius: var(--radius-xl); max-width: 840px; width: 100%;
+  max-height: 90vh; overflow-y: auto; position: relative;
+  transform: scale(0.92) translateY(24px); transition: var(--transition);
+}
+.modal-overlay.open .modal-box { transform: scale(1) translateY(0); }
+.modal-close {
+  position: absolute; top: 16px; right: 16px; z-index: 10;
+  background: var(--light); border: none; border-radius: 50%;
+  width: 40px; height: 40px; font-size: 1rem; color: var(--navy);
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  transition: var(--transition);
+}
+.modal-close:hover { background: #FFE0D8; color: var(--accent); }
+.modal-grid { display: grid; grid-template-columns: 1fr 1fr; }
+.modal-img { border-radius: var(--radius-xl) 0 0 var(--radius-xl); overflow: hidden; min-height: 380px; }
+.modal-img img { width: 100%; height: 100%; object-fit: cover; }
+.modal-info { padding: 40px 36px; }
+.modal-cat { font-size: 0.75rem; font-weight: 700; color: var(--primary-dark); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; }
+.modal-title { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+.modal-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; }
+.modal-benefits { margin-bottom: 20px; }
+.modal-benefits li { display: flex; align-items: center; gap: 8px; font-size: 0.83rem; color: var(--text); margin-bottom: 6px; }
+.modal-benefits li i { color: var(--primary); font-size: 0.75rem; }
+.modal-price-row { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+.modal-price { font-size: 1.8rem; font-weight: 800; color: var(--primary-dark); }
+.modal-price-old { font-size: 0.95rem; color: var(--text-muted); text-decoration: line-through; }
+.modal-actions { display: flex; flex-direction: column; gap: 10px; }
+.modal-nav { display: flex; gap: 10px; margin-top: 20px; }
+.modal-nav-btn {
+  flex: 1; padding: 10px; border: 1.5px solid var(--border); border-radius: var(--radius);
+  background: var(--light); color: var(--text-muted); font-size: 0.8rem; font-weight: 600;
+  cursor: pointer; transition: var(--transition); display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+.modal-nav-btn:hover { border-color: var(--primary); color: var(--primary-dark); }
+
+/* ═══════════════════════════════════════════
+   CARRITO LATERAL
+═══════════════════════════════════════════ */
+.cart-overlay {
+  position: fixed; inset: 0; z-index: 1500;
+  background: rgba(13,27,42,0.5); backdrop-filter: blur(4px);
+  opacity: 0; visibility: hidden; transition: var(--transition);
+}
+.cart-overlay.open { opacity: 1; visibility: visible; }
+.cart-panel {
+  position: fixed; right: 0; top: 0; bottom: 0; width: 420px; max-width: 100vw;
+  background: #fff; z-index: 1501; transform: translateX(100%); transition: var(--transition);
+  display: flex; flex-direction: column; box-shadow: -8px 0 40px rgba(0,0,0,0.12);
+}
+.cart-overlay.open .cart-panel { transform: translateX(0); }
+.cart-header {
+  padding: 24px; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.cart-header h2 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--navy); }
+.cart-close-btn { background: var(--light); border: none; border-radius: 50%; width: 36px; height: 36px; font-size: 0.95rem; cursor: pointer; transition: var(--transition); color: var(--navy); display: flex; align-items: center; justify-content: center; }
+.cart-close-btn:hover { background: #FFE0D8; color: var(--accent); }
+.cart-items { flex: 1; overflow-y: auto; padding: 20px; }
+.cart-empty { text-align: center; padding: 60px 20px; color: var(--text-muted); }
+.cart-empty i { font-size: 3rem; display: block; margin-bottom: 12px; }
+.cart-item {
+  display: flex; gap: 14px; padding: 16px; background: var(--light); border-radius: var(--radius);
+  margin-bottom: 12px; position: relative; transition: var(--transition);
+}
+.cart-item:hover { background: var(--primary-light); }
+.cart-item-img { width: 70px; height: 70px; border-radius: 10px; overflow: hidden; flex-shrink: 0; }
+.cart-item-img img { width: 100%; height: 100%; object-fit: cover; }
+.cart-item-info { flex: 1; }
+.cart-item-name { font-size: 0.88rem; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+.cart-item-price { font-size: 0.85rem; color: var(--primary-dark); font-weight: 600; }
+.cart-item-qty { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+.qty-btn { width: 26px; height: 26px; border: 1px solid var(--border); border-radius: 50%; background: #fff; font-size: 0.85rem; cursor: pointer; transition: var(--transition); display: flex; align-items: center; justify-content: center; }
+.qty-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+.qty-num { font-size: 0.9rem; font-weight: 700; min-width: 20px; text-align: center; }
+.cart-item-remove { position: absolute; top: 12px; right: 12px; background: none; border: none; color: var(--text-muted); font-size: 0.8rem; cursor: pointer; transition: var(--transition); }
+.cart-item-remove:hover { color: var(--accent); }
+.cart-footer { padding: 20px; border-top: 1px solid var(--border); }
+.cart-total-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.cart-total-row span { font-size: 0.9rem; color: var(--text-muted); }
+.cart-total-val { font-size: 1.4rem; font-weight: 800; color: var(--navy); }
+.cart-checkout-btn {
+  width: 100%; background: linear-gradient(135deg, #25D366, #128C7E);
+  color: #fff; border: none; border-radius: 99px; padding: 16px;
+  font-size: 1rem; font-weight: 700; cursor: pointer; margin-top: 16px;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  transition: var(--transition); box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+}
+.cart-checkout-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.4); }
+.cart-clear-btn {
+  width: 100%; background: none; border: 1px solid var(--border); border-radius: 99px;
+  padding: 10px; font-size: 0.85rem; font-weight: 600; color: var(--text-muted);
+  cursor: pointer; margin-top: 8px; transition: var(--transition);
+}
+.cart-clear-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Confirm overlay */
+.confirm-overlay {
+  position: fixed; inset: 0; z-index: 3000; background: rgba(13,27,42,0.8); backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center; padding: 24px;
+  opacity: 0; visibility: hidden; transition: var(--transition);
+}
+.confirm-overlay.open { opacity: 1; visibility: visible; }
+.confirm-box {
+  background: #fff; border-radius: var(--radius-xl); padding: 48px 40px; max-width: 480px; width: 100%;
+  text-align: center; transform: scale(0.9); transition: var(--transition);
+}
+.confirm-overlay.open .confirm-box { transform: scale(1); }
+.confirm-icon { font-size: 4rem; margin-bottom: 16px; }
+.confirm-box h2 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+.confirm-box p { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 28px; }
+.confirm-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+/* ═══════════════════════════════════════════
+   NEWSLETTER
+═══════════════════════════════════════════ */
+#newsletter { padding: 100px 0; background: linear-gradient(135deg, #0D1B2A 0%, #0A2A1E 100%); position: relative; overflow: hidden; }
+.newsletter-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(0,200,150,0.1) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 30%, rgba(124,58,237,0.08) 0%, transparent 60%);
+}
+.newsletter-inner { position: relative; z-index: 1; text-align: center; }
+.newsletter-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,200,150,0.12); border: 1px solid rgba(0,200,150,0.2); color: var(--primary); padding: 8px 20px; border-radius: 99px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 24px; }
+.newsletter-title { font-family: var(--font-display); font-size: clamp(2rem,4vw,2.8rem); font-weight: 800; color: #fff; margin-bottom: 14px; }
+.newsletter-title span { color: var(--primary); }
+.newsletter-sub { color: rgba(255,255,255,0.65); font-size: 1rem; max-width: 520px; margin: 0 auto 40px; line-height: 1.7; }
+.newsletter-form-card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-xl); padding: 40px; max-width: 600px; margin: 0 auto;
+  backdrop-filter: blur(10px);
+}
+.nl-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.nl-input-wrap { position: relative; }
+.nl-input-wrap i { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,0.35); }
+.nl-input {
+  width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius); padding: 14px 16px 14px 44px; color: #fff; font-size: 0.9rem;
+  transition: var(--transition);
+}
+.nl-input::placeholder { color: rgba(255,255,255,0.35); }
+.nl-input:focus { outline: none; border-color: var(--primary); background: rgba(0,200,150,0.08); }
+.nl-select {
+  width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius); padding: 14px 16px; color: #fff; font-size: 0.9rem;
+  transition: var(--transition); appearance: none;
+}
+.nl-select option { background: var(--navy); color: #fff; }
+.nl-select:focus { outline: none; border-color: var(--primary); }
+.nl-full { grid-column: 1/-1; }
+.nl-submit {
+  width: 100%; padding: 16px; border-radius: 99px; border: none;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff; font-size: 1rem; font-weight: 800; cursor: pointer;
+  transition: var(--transition); margin-top: 8px;
+  box-shadow: 0 4px 20px rgba(0,200,150,0.3);
+}
+.nl-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,200,150,0.45); }
+.nl-legal { color: rgba(255,255,255,0.4); font-size: 0.75rem; margin-top: 16px; text-align: center; }
+
+/* Cupón */
+.coupon-box {
+  display: none; background: rgba(0,200,150,0.08); border: 2px dashed var(--primary);
+  border-radius: var(--radius-xl); padding: 32px; text-align: center; margin-top: 24px;
+  animation: fadeInUp 0.6s ease both;
+}
+.coupon-box.show { display: block; }
+.coupon-code {
+  font-family: var(--font-display); font-size: 2.5rem; font-weight: 800;
+  color: var(--primary); letter-spacing: 0.08em; margin: 12px 0;
+}
+.coupon-box p { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
+.coupon-icon { font-size: 2.5rem; margin-bottom: 8px; }
+.coupon-welcome { font-size: 1.1rem; font-weight: 700; color: #fff; }
+
+/* ═══════════════════════════════════════════
+   TESTIMONIOS
+═══════════════════════════════════════════ */
+#testimonios { padding: 100px 0; background: #fff; }
+.testimonios-header { text-align: center; margin-bottom: 60px; }
+.testimonios-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.testi-card {
+  background: var(--light); border: 1px solid var(--border); border-radius: var(--radius-xl);
+  padding: 32px; transition: var(--transition); position: relative;
+}
+.testi-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--primary); background: #fff; }
+.testi-card::before {
+  content: '\201C'; font-size: 5rem; color: var(--primary-light); line-height: 1;
+  position: absolute; top: 16px; right: 24px; font-family: Georgia, serif; opacity: 0.6;
+}
+.testi-stars { display: flex; gap: 3px; margin-bottom: 14px; }
+.testi-stars i { color: #FBBF24; font-size: 0.9rem; }
+.testi-text { font-size: 0.9rem; color: var(--text); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+.testi-author { display: flex; align-items: center; gap: 14px; }
+.testi-avatar { width: 46px; height: 46px; border-radius: 50%; overflow: hidden; border: 2px solid var(--primary); flex-shrink: 0; }
+.testi-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.testi-name { font-weight: 700; font-size: 0.9rem; color: var(--navy); }
+.testi-pet { font-size: 0.75rem; color: var(--text-muted); }
+
+/* ═══════════════════════════════════════════
+   MESA DE AYUDA
+═══════════════════════════════════════════ */
+#mesa-ayuda { padding: 100px 0; background: linear-gradient(180deg, #F7FFFE 0%, #EAF9F4 100%); }
+.ayuda-header { text-align: center; margin-bottom: 60px; }
+.ayuda-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.faq-list { display: flex; flex-direction: column; gap: 12px; }
+.faq-item { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: var(--transition); }
+.faq-item.open { border-color: var(--primary); box-shadow: var(--shadow-sm); }
+.faq-q {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 22px; cursor: pointer; user-select: none;
+  font-weight: 700; font-size: 0.9rem; color: var(--navy);
+}
+.faq-q i { color: var(--primary); transition: transform 0.3s ease; font-size: 0.8rem; }
+.faq-item.open .faq-q i { transform: rotate(180deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; }
+.faq-a-inner { padding: 0 22px 18px; font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; }
+.faq-item.open .faq-a { max-height: 300px; }
+
+.ayuda-contact-cards { display: flex; flex-direction: column; gap: 16px; }
+.contact-quick-card {
+  background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 24px; display: flex; gap: 18px; align-items: flex-start; transition: var(--transition);
+}
+.contact-quick-card:hover { border-color: var(--primary); box-shadow: var(--shadow-sm); }
+.contact-card-icon {
+  width: 50px; height: 50px; border-radius: 14px; display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; flex-shrink: 0;
+}
+.contact-card-icon.green { background: #DCFCE7; color: #16A34A; }
+.contact-card-icon.teal { background: var(--primary-light); color: var(--primary-dark); }
+.contact-card-icon.orange { background: #FFF0E8; color: var(--accent); }
+.contact-card-icon.purple { background: #EDE9FF; color: var(--accent2); }
+.contact-card-text h4 { font-weight: 700; font-size: 0.9rem; color: var(--navy); margin-bottom: 4px; }
+.contact-card-text p { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px; }
+.status-dot { display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; font-weight: 600; color: #16A34A; }
+.status-dot::before { content: ''; width: 8px; height: 8px; background: #16A34A; border-radius: 50%; animation: pulse 2s infinite; }
+
+/* ═══════════════════════════════════════════
+   CONTACTO
+═══════════════════════════════════════════ */
+#contacto { padding: 100px 0; background: #fff; }
+.contacto-header { text-align: center; margin-bottom: 60px; }
+.contacto-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start; }
+.contacto-info { display: flex; flex-direction: column; gap: 24px; }
+.contact-info-item { display: flex; gap: 16px; align-items: flex-start; }
+.contact-info-icon {
+  width: 48px; height: 48px; background: var(--primary-light); border-radius: 14px;
+  display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: var(--primary-dark); flex-shrink: 0;
+}
+.contact-info-text h4 { font-weight: 700; font-size: 0.9rem; color: var(--navy); margin-bottom: 4px; }
+.contact-info-text p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+.social-links { display: flex; gap: 10px; margin-top: 8px; }
+.social-btn {
+  width: 40px; height: 40px; background: var(--light); border-radius: 10px; border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center; transition: var(--transition); font-size: 0.95rem; color: var(--slate);
+}
+.social-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+.map-sim {
+  border-radius: var(--radius-xl); overflow: hidden; height: 220px;
+  background: linear-gradient(135deg, #E8FFF8, #C8F0E8);
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--border); position: relative;
+}
+.map-sim-inner { text-align: center; color: var(--primary-dark); }
+.map-sim-inner i { font-size: 2.5rem; display: block; margin-bottom: 8px; }
+.map-sim-inner span { font-weight: 700; font-size: 0.9rem; }
+
+.contact-form-card { background: var(--light); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 36px; }
+.cf-group { margin-bottom: 18px; }
+.cf-group label { display: block; font-size: 0.82rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+.cf-input, .cf-textarea {
+  width: 100%; padding: 14px 16px; border: 1.5px solid var(--border); border-radius: var(--radius);
+  background: #fff; font-size: 0.9rem; color: var(--text); transition: var(--transition);
+}
+.cf-input:focus, .cf-textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(0,200,150,0.1); }
+.cf-textarea { min-height: 130px; resize: vertical; }
+.cf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.cf-submit {
+  width: 100%; background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff; border: none; border-radius: 99px; padding: 16px;
+  font-size: 1rem; font-weight: 700; cursor: pointer; transition: var(--transition);
+  box-shadow: 0 4px 20px rgba(0,200,150,0.3);
+}
+.cf-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,200,150,0.45); }
+.cf-note { font-size: 0.72rem; color: var(--text-muted); margin-top: 12px; text-align: center; line-height: 1.5; }
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+footer {
+  background: var(--navy); color: rgba(255,255,255,0.75); padding: 70px 0 0;
+}
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.footer-brand .nav-logo { color: #fff; margin-bottom: 16px; }
+.footer-brand p { font-size: 0.83rem; line-height: 1.7; max-width: 280px; margin-bottom: 20px; }
+.footer-col h4 { font-size: 0.85rem; font-weight: 800; color: #fff; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 20px; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul li a { font-size: 0.83rem; color: rgba(255,255,255,0.55); transition: var(--transition); }
+.footer-col ul li a:hover { color: var(--primary); }
+.footer-bottom { padding: 22px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: gap; }
+.footer-bottom p { font-size: 0.78rem; color: rgba(255,255,255,0.35); }
+.footer-bottom span { color: var(--primary); }
+
+/* ═══════════════════════════════════════════
+   BOTONES FLOTANTES
+═══════════════════════════════════════════ */
+.wpp-float {
+  position: fixed; right: 24px; bottom: 100px; z-index: 900;
+  width: 58px; height: 58px; background: linear-gradient(135deg, #25D366, #128C7E);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 1.6rem; box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+  text-decoration: none; animation: pulseWpp 2.5s infinite;
+  transition: transform 0.3s ease;
+}
+.wpp-float:hover { transform: scale(1.12); }
+@keyframes pulseWpp {
+  0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.5), 0 0 0 0 rgba(37,211,102,0.35); }
+  50% { box-shadow: 0 4px 20px rgba(37,211,102,0.5), 0 0 0 12px rgba(37,211,102,0); }
+}
+
+/* Chatbot */
+.chat-float {
+  position: fixed; right: 24px; bottom: 24px; z-index: 900;
+  width: 58px; height: 58px; background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 1.4rem; cursor: pointer; box-shadow: 0 4px 20px rgba(0,200,150,0.45);
+  transition: transform 0.3s ease; border: none;
+}
+.chat-float:hover { transform: scale(1.12); }
+.chat-unread {
+  position: absolute; top: -4px; right: -4px; background: var(--accent); color: #fff;
+  width: 20px; height: 20px; border-radius: 50%; font-size: 0.65rem; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* Chatbot panel */
+.chat-panel {
+  position: fixed; right: 24px; bottom: 100px; z-index: 950; width: 360px; max-width: calc(100vw - 32px);
+  background: #fff; border-radius: var(--radius-xl); box-shadow: var(--shadow-lg);
+  overflow: hidden; transform: scale(0.9) translateY(20px); opacity: 0; visibility: hidden;
+  transition: var(--transition);
+}
+.chat-panel.open { transform: scale(1) translateY(0); opacity: 1; visibility: visible; }
+.chat-panel-header {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: #fff;
+  padding: 18px 20px; display: flex; align-items: center; gap: 14px;
+}
+.chat-avatar-wrap { position: relative; }
+.chat-avatar { width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; }
+.chat-online { position: absolute; bottom: 1px; right: 1px; width: 10px; height: 10px; background: #4ADE80; border-radius: 50%; border: 2px solid var(--primary); }
+.chat-panel-title h3 { font-weight: 700; font-size: 0.95rem; }
+.chat-panel-title span { font-size: 0.73rem; opacity: 0.8; }
+.chat-close { background: rgba(255,255,255,0.15); border: none; color: #fff; border-radius: 50%; width: 28px; height: 28px; cursor: pointer; margin-left: auto; display: flex; align-items: center; justify-content: center; }
+.chat-messages { height: 280px; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 12px; background: #F8FAFB; }
+.chat-msg { display: flex; gap: 8px; align-items: flex-end; }
+.chat-msg.user { flex-direction: row-reverse; }
+.chat-bubble {
+  max-width: 76%; padding: 10px 14px; border-radius: 18px;
+  font-size: 0.82rem; line-height: 1.5;
+}
+.chat-msg.bot .chat-bubble { background: #fff; color: var(--text); border: 1px solid var(--border); border-bottom-left-radius: 4px; }
+.chat-msg.user .chat-bubble { background: var(--primary); color: #fff; border-bottom-right-radius: 4px; }
+.chat-suggestions { padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 6px; background: #F8FAFB; border-top: 1px solid var(--border); }
+.chat-sug-btn {
+  background: #fff; border: 1px solid var(--border); border-radius: 99px; padding: 6px 12px;
+  font-size: 0.73rem; font-weight: 600; color: var(--slate); cursor: pointer; transition: var(--transition);
+}
+.chat-sug-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+.chat-input-row { padding: 12px; border-top: 1px solid var(--border); display: flex; gap: 8px; }
+.chat-input {
+  flex: 1; padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 99px;
+  font-size: 0.85rem; outline: none; transition: var(--transition);
+}
+.chat-input:focus { border-color: var(--primary); }
+.chat-send { background: var(--primary); color: #fff; border: none; border-radius: 50%; width: 36px; height: 36px; cursor: pointer; transition: var(--transition); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.chat-send:hover { background: var(--primary-dark); }
+
+/* ═══════════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════════ */
+@keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInRight { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.1); opacity: 0.8; } }
+@keyframes countAnim { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Notification toast */
+.toast {
+  position: fixed; top: 90px; right: 24px; z-index: 2500;
+  background: var(--navy); color: #fff; padding: 14px 22px; border-radius: var(--radius);
+  font-size: 0.88rem; font-weight: 600; display: flex; align-items: center; gap: 10px;
+  transform: translateX(120%); transition: var(--transition); box-shadow: var(--shadow-md);
+  max-width: 320px;
+}
+.toast.show { transform: translateX(0); }
+.toast.success { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); }
+.toast.error { background: linear-gradient(135deg, var(--accent), #FF4400); }
+.toast i { font-size: 1.1rem; }
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media (max-width: 1100px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-visual { display: none; }
+  .stats-row { grid-template-columns: repeat(2,1fr); }
+  .services-grid { grid-template-columns: repeat(2,1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+}
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-cards { display: none; }
+  .promo-grid { grid-template-columns: 1fr 1fr; }
+  .testimonios-grid { grid-template-columns: 1fr 1fr; }
+  .ayuda-grid { grid-template-columns: 1fr; }
+  .contacto-grid { grid-template-columns: 1fr; }
+  .modal-grid { grid-template-columns: 1fr; }
+  .modal-img { border-radius: var(--radius-xl) var(--radius-xl) 0 0; min-height: 260px; }
+}
+@media (max-width: 640px) {
+  .promo-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+  .testimonios-grid { grid-template-columns: 1fr; }
+  .stats-row { grid-template-columns: repeat(2,1fr); }
+  .nl-form-grid { grid-template-columns: 1fr; }
+  .cf-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .hero-btns { flex-direction: column; }
+  .hero-trust { gap: 20px; }
+  .about-values { grid-template-columns: 1fr; }
+  .cart-panel { width: 100vw; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ TOAST NOTIFICATION ═══ -->
+<div class="toast" id="toast">
+  <i class="fa-solid fa-check-circle"></i>
+  <span id="toastMsg">Producto agregado al carrito</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     NAVBAR
+═══════════════════════════════════════════ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#inicio" class="nav-logo">
+      <div class="logo-icon">🐾</div>
+      Pet<span>Genius</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#inicio">Inicio</a>
+      <a href="#quienes-somos">Nosotros</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#promociones">Promos</a>
+      <a href="#marcas">Marcas</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#newsletter">Newsletter</a>
+      <a href="#testimonios">Testimonios</a>
+      <a href="#mesa-ayuda">Ayuda</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <div class="nav-actions">
+      <button class="cart-btn" id="cartBtn">
+        <i class="fa-solid fa-bag-shopping"></i> Carrito
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose"><i class="fa-solid fa-xmark"></i></button>
+  <a href="#inicio" onclick="closeMobile()">🏠 Inicio</a>
+  <a href="#quienes-somos" onclick="closeMobile()">📖 Quiénes Somos</a>
+  <a href="#servicios" onclick="closeMobile()">⚡ Servicios</a>
+  <a href="#promociones" onclick="closeMobile()">🔥 Promociones</a>
+  <a href="#marcas" onclick="closeMobile()">🏅 Marcas</a>
+  <a href="#catalogo" onclick="closeMobile()">🛍️ Catálogo</a>
+  <a href="#newsletter" onclick="closeMobile()">📧 Newsletter</a>
+  <a href="#testimonios" onclick="closeMobile()">⭐ Testimonios</a>
+  <a href="#mesa-ayuda" onclick="closeMobile()">🆘 Mesa de Ayuda</a>
+  <a href="#contacto" onclick="closeMobile()">📞 Contacto</a>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     HERO SECTION
+═══════════════════════════════════════════ -->
+<section id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content container">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="hero-tag">🤖 IA aplicada al cuidado animal</div>
+        <h1 class="hero-h1">
+          Bienvenido a<br>
+          <span>PetGenius</span>
+        </h1>
+        <p class="hero-sub">
+          Plataforma inteligente para el bienestar y cuidado de tus mascotas. Tecnología, amor y ciencia al servicio de tu mejor amigo.
+        </p>
+        <div class="hero-btns">
+          <a href="#catalogo" class="btn btn-primary"><i class="fa-solid fa-store"></i> Ver Catálogo</a>
+          <a href="https://wa.me/50493475587?text=%C2%A1Hola!%20%F0%9F%91%8B%F0%9F%90%BE%0AMe%20interesa%20conocer%20m%C3%A1s%20sobre%20PetGenius" target="_blank" class="btn btn-wpp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-item">
+            <div class="trust-icon"><i class="fa-solid fa-paw"></i></div>
+            <div class="trust-info">
+              <span class="trust-num">+18,000</span>
+              <span class="trust-label">Mascotas atendidas</span>
+            </div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-icon"><i class="fa-solid fa-heart"></i></div>
+            <div class="trust-info">
+              <span class="trust-num">+50,000</span>
+              <span class="trust-label">Clientes felices</span>
+            </div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-icon"><i class="fa-solid fa-star"></i></div>
+            <div class="trust-info">
+              <span class="trust-num">4.9★</span>
+              <span class="trust-label">Calificación promedio</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-cards">
+          <div class="hero-card">
+            <div class="hero-card-icon" style="background:rgba(0,200,150,0.15);">🍖</div>
+            <h3>Alimentos Premium</h3>
+            <p>Nutrición científica para tu mascota con las mejores marcas del mundo.</p>
+          </div>
+          <div class="hero-card">
+            <div class="hero-card-icon" style="background:rgba(124,58,237,0.15);">✂️</div>
+            <h3>Grooming Experto</h3>
+            <p>Estética y cuidado profesional para que tu mascota luzca perfecta.</p>
+          </div>
+          <div class="hero-card">
+            <div class="hero-card-icon" style="background:rgba(255,107,53,0.15);">💉</div>
+            <h3>Salud Preventiva</h3>
+            <p>Recordatorios de vacunas y seguimiento de salud automatizado.</p>
+          </div>
+          <div class="hero-card">
+            <div class="hero-card-icon" style="background:rgba(250,204,21,0.15);">🎾</div>
+            <h3>Accesorios Smart</h3>
+            <p>Los mejores juguetes y accesorios inteligentes para tu compañero.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     QUIÉNES SOMOS
+═══════════════════════════════════════════ -->
+<section id="quienes-somos">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text fade-up">
+        <div class="section-tag"><i class="fa-solid fa-building"></i> Nuestra historia</div>
+        <h2 class="section-title">Somos PetGenius,<br>nacimos en Honduras</h2>
+        <p class="section-sub" style="margin-bottom:24px;">
+          Fundada en 2020 en Tegucigalpa, Honduras, PetGenius nació con la misión de transformar la manera en que los hondureños cuidan a sus mascotas, combinando tecnología de vanguardia con el amor más profundo por los animales.
+        </p>
+        <p style="font-size:0.88rem;color:var(--text-muted);line-height:1.8;margin-bottom:28px;">
+          Nuestra plataforma integra inteligencia artificial, automatización y atención personalizada para ofrecer una experiencia de compra y cuidado sin precedentes. Trabajamos con veterinarios certificados, nutricionistas animales y expertos en comportamiento para garantizar que cada producto y servicio que ofrecemos sea el mejor para tu mascota.
+        </p>
+        <div class="about-values">
+          <div class="value-card">
+            <i class="fa-solid fa-bullseye"></i>
+            <h4>Misión</h4>
+            <p>Mejorar la calidad de vida de las mascotas y sus dueños a través de tecnología e innovación.</p>
+          </div>
+          <div class="value-card">
+            <i class="fa-solid fa-eye"></i>
+            <h4>Visión</h4>
+            <p>Ser la plataforma líder de bienestar animal en Centroamérica para 2027.</p>
+          </div>
+          <div class="value-card">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h4>Confianza</h4>
+            <p>100% transparencia en todos nuestros procesos, productos y servicios.</p>
+          </div>
+          <div class="value-card">
+            <i class="fa-solid fa-robot"></i>
+            <h4>Innovación</h4>
+            <p>IA y automatización para ofrecerte siempre el mejor servicio posible.</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-visual fade-up" style="transition-delay:0.2s;">
+        <div class="about-img-wrap">
+          <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=700&q=80" alt="PetGenius equipo y mascotas">
+        </div>
+        <div class="about-badge-float">
+          <div class="num">2020</div>
+          <div class="txt">Año de fundación 🇭🇳</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row" style="margin-top:64px;">
+      <div class="stat-card fade-up">
+        <div class="stat-num" data-target="18000">0</div>
+        <div class="stat-label">Mascotas atendidas</div>
+      </div>
+      <div class="stat-card fade-up" style="transition-delay:0.1s;">
+        <div class="stat-num" data-target="50000">0</div>
+        <div class="stat-label">Usuarios registrados</div>
+      </div>
+      <div class="stat-card fade-up" style="transition-delay:0.2s;">
+        <div class="stat-num" data-target="12000">0</div>
+        <div class="stat-label">Productos vendidos</div>
+      </div>
+      <div class="stat-card fade-up" style="transition-delay:0.3s;">
+        <div class="stat-num" data-target="32000">0</div>
+        <div class="stat-label">Recomendaciones IA</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SERVICIOS INTELIGENTES
+═══════════════════════════════════════════ -->
+<section id="servicios">
+  <div class="container">
+    <div class="servicios-header fade-up">
+      <div class="section-tag"><i class="fa-solid fa-robot"></i> IA & Tecnología</div>
+      <h2 class="section-title">Servicios Inteligentes</h2>
+      <p class="section-sub">Tecnología al servicio del bienestar de tu mascota. Nuestra plataforma aprende, recuerda y te guía en cada etapa.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-icon"><i class="fa-solid fa-syringe"></i></div>
+        <h3>Recordatorios Automáticos de Vacunas</h3>
+        <p>Nunca olvides una vacuna importante. Nuestro sistema te envía alertas personalizadas según el calendario de salud de tu mascota.</p>
+        <div class="service-tag"><i class="fa-solid fa-bell"></i> Automatizado</div>
+      </div>
+      <div class="service-card fade-up" style="transition-delay:0.1s;">
+        <div class="service-icon"><i class="fa-solid fa-brain"></i></div>
+        <h3>Recomendaciones Personalizadas con IA</h3>
+        <p>Algoritmos inteligentes analizan la raza, edad y salud de tu mascota para sugerirte los mejores productos.</p>
+        <div class="service-tag"><i class="fa-solid fa-sparkles"></i> IA Activa</div>
+      </div>
+      <div class="service-card fade-up" style="transition-delay:0.2s;">
+        <div class="service-icon"><i class="fa-solid fa-stethoscope"></i></div>
+        <h3>Asesoría Veterinaria Virtual</h3>
+        <p>Consulta con nuestros veterinarios certificados desde la comodidad de tu hogar, en tiempo real vía chat o videollamada.</p>
+        <div class="service-tag"><i class="fa-solid fa-video"></i> En línea</div>
+      </div>
+      <div class="service-card fade-up" style="transition-delay:0.3s;">
+        <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <h3>Seguimiento Nutricional</h3>
+        <p>Monitorea la dieta y nutrición de tu mascota con planes personalizados diseñados por expertos certificados.</p>
+        <div class="service-tag"><i class="fa-solid fa-leaf"></i> Nutrición</div>
+      </div>
+      <div class="service-card fade-up" style="transition-delay:0.4s;">
+        <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <h3>Sugerencias Inteligentes de Productos</h3>
+        <p>Nuestro motor de recomendaciones aprende de tus compras y preferencias para ofrecerte siempre lo más relevante.</p>
+        <div class="service-tag"><i class="fa-solid fa-robot"></i> Machine Learning</div>
+      </div>
+      <div class="service-card fade-up" style="transition-delay:0.5s;">
+        <div class="service-icon"><i class="fa-solid fa-headset"></i></div>
+        <h3>Atención Automatizada 24/7</h3>
+        <p>Nuestro asistente virtual está disponible todo el día para resolver tus dudas, procesar pedidos y darte soporte inmediato.</p>
+        <div class="service-tag"><i class="fa-solid fa-clock"></i> 24/7</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     PROMOCIONES
+═══════════════════════════════════════════ -->
+<section id="promociones">
+  <div class="container">
+    <div class="promo-header fade-up">
+      <div class="section-tag"><i class="fa-solid fa-fire"></i> Ofertas especiales</div>
+      <h2 class="section-title">Promociones Exclusivas</h2>
+      <p class="section-sub">Descuentos increíbles por tiempo limitado. ¡No dejes pasar estas ofertas para tu mascota!</p>
+    </div>
+    <div class="promo-grid">
+      <!-- Promo 1 -->
+      <div class="promo-card fade-up">
+        <div class="promo-img-wrap">
+          <img src="https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?w=500&q=80" alt="Alimento Premium">
+          <div class="promo-badges">
+            <span class="badge badge-hot">🔥 HOT DEAL</span>
+            <span class="badge badge-new">Más vendido</span>
+          </div>
+          <div class="promo-discount">20%<span>OFF</span></div>
+        </div>
+        <div class="promo-body">
+          <h3>Pack Royal Canin Adulto 15kg</h3>
+          <p>Nutrición premium para perros adultos. Fórmula veterinaria avanzada.</p>
+          <div class="promo-prices">
+            <span class="price-old">L 1,850</span>
+            <span class="price-new">L 1,480</span>
+          </div>
+          <div class="countdown-wrap">
+            <span class="countdown-label">Oferta termina en:</span>
+            <div class="countdown-box"><div class="countdown-num" id="cd1h">08</div><div class="countdown-unit">h</div></div>
+            <div class="countdown-box"><div class="countdown-num" id="cd1m">34</div><div class="countdown-unit">m</div></div>
+            <div class="countdown-box"><div class="countdown-num" id="cd1s">12</div><div class="countdown-unit">s</div></div>
+          </div>
+          <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="addToCartQuick('Pack Royal Canin Adulto 15kg',1480,'https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?w=120&q=70')">
+            <i class="fa-solid fa-bag-shopping"></i> Agregar al carrito
+          </button>
+        </div>
+      </div>
+      <!-- Promo 2 -->
+      <div class="promo-card fade-up" style="transition-delay:0.1s;">
+        <div class="promo-img-wrap">
+          <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=500&q=80" alt="Pack Grooming">
+          <div class="promo-badges">
+            <span class="badge badge-sale">15% OFF</span>
+          </div>
+          <div class="promo-discount">15%<span>OFF</span></div>
+        </div>
+        <div class="promo-body">
+          <h3>Combo Grooming Completo 🛁</h3>
+          <p>Shampoo + acondicionador + perfume + cepillo profesional para tu perro.</p>
+          <div class="promo-prices">
+            <span class="price-old">L 890</span>
+            <span class="price-new">L 756</span>
+          </div>
+          <div class="countdown-wrap">
+            <span class="countdown-label">Oferta termina en:</span>
+            <div class="countdown-box"><div class="countdown-num" id="cd2h">12</div><div class="countdown-unit">h</div></div>
+            <div class="countdown-box"><div class="countdown-num" id="cd2m">58</div><div class="countdown-unit">m</div></div>
+            <div class="countdown-box"><div class="countdown-num" id="cd2s">44</div><div class="countdown-unit">s</div></div>
+          </div>
+          <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="addToCartQuick('Combo Grooming Completo',756,'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=120&q=70')">
+            <i class="fa-solid fa-bag-shopping"></i> Agregar al carrito
+          </button>
+        </div>
+      </div>
+      <!-- Promo 3 -->
+      <div class="promo-card fade-up" style="transition-delay:0.2s;">
+        <div class="promo-img-wrap">
+          <img src="https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8?w=500&q=80" alt="Accesorios">
+          <div class="promo-badges">
+            <span class="badge badge-new">🆕 Nuevo</span>
+          </div>
+          <div class="promo-discount">25%<span>OFF</span></div>
+        </div>
+        <div class="promo-body">
+          <h3>Kit Accesorios Smart para Gatos 🐱</h3>
+          <p>Incluye rascador, juguetes interactivos y fuente de agua automática.</p>
+          <div class="promo-prices">
+            <span class="price-old">L 1,200</span>
+            <span class="price-new">L 900</span>
+          </div>
+          <div class="countdown-wrap">
+            <span class="countdown-label">Oferta termina en:</span>
+            <div class="countdown-box"><div class="countdown-num" id="cd3h">05</div><div class="countdown-unit">h</div></div>
+            <div class="countdown-box"><div class="countdown-num" id="cd3m">22</div><div class="countdown-unit">m</div></div>
+            <div class="countdown-box"><div class="countdown-num" id="cd3s">07</div><div class="countdown-unit">s</div></div>
+          </div>
+          <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="addToCartQuick('Kit Accesorios Smart Gatos',900,'https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8?w=120&q=70')">
+            <i class="fa-solid fa-bag-shopping"></i> Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     MARCAS ALIADAS
+═══════════════════════════════════════════ -->
+<section id="marcas">
+  <div class="container">
+    <div class="marcas-header fade-up">
+      <div class="section-tag"><i class="fa-solid fa-medal"></i> Marcas premium</div>
+      <h2 class="section-title">Nuestras Marcas Aliadas</h2>
+      <p class="section-sub" style="margin:0 auto;">Trabajamos exclusivamente con las mejores marcas del mundo para garantizar la calidad que tu mascota merece.</p>
+    </div>
+    <div class="brands-track-wrap">
+      <div class="brands-track" id="brandsTrack">
+        <div class="brand-item"><div class="brand-emoji">👑</div><div class="brand-name">Royal Canin</div></div>
+        <div class="brand-item"><div class="brand-emoji">🐾</div><div class="brand-name">Purina</div></div>
+        <div class="brand-item"><div class="brand-emoji">🦴</div><div class="brand-name">Pedigree</div></div>
+        <div class="brand-item"><div class="brand-emoji">🐕</div><div class="brand-name">Dog Chow</div></div>
+        <div class="brand-item"><div class="brand-emoji">🐈</div><div class="brand-name">Whiskas</div></div>
+        <div class="brand-item"><div class="brand-emoji">🏥</div><div class="brand-name">Hill's</div></div>
+        <div class="brand-item"><div class="brand-emoji">⭐</div><div class="brand-name">Pro Plan</div></div>
+        <div class="brand-item"><div class="brand-emoji">💊</div><div class="brand-name">Bayer Pet</div></div>
+        <div class="brand-item"><div class="brand-emoji">🌿</div><div class="brand-name">Eukanuba</div></div>
+        <div class="brand-item"><div class="brand-emoji">🎯</div><div class="brand-name">Advance</div></div>
+        <!-- Duplicado para scroll infinito -->
+        <div class="brand-item"><div class="brand-emoji">👑</div><div class="brand-name">Royal Canin</div></div>
+        <div class="brand-item"><div class="brand-emoji">🐾</div><div class="brand-name">Purina</div></div>
+        <div class="brand-item"><div class="brand-emoji">🦴</div><div class="brand-name">Pedigree</div></div>
+        <div class="brand-item"><div class="brand-emoji">🐕</div><div class="brand-name">Dog Chow</div></div>
+        <div class="brand-item"><div class="brand-emoji">🐈</div><div class="brand-name">Whiskas</div></div>
+        <div class="brand-item"><div class="brand-emoji">🏥</div><div class="brand-name">Hill's</div></div>
+        <div class="brand-item"><div class="brand-emoji">⭐</div><div class="brand-name">Pro Plan</div></div>
+        <div class="brand-item"><div class="brand-emoji">💊</div><div class="brand-name">Bayer Pet</div></div>
+        <div class="brand-item"><div class="brand-emoji">🌿</div><div class="brand-name">Eukanuba</div></div>
+        <div class="brand-item"><div class="brand-emoji">🎯</div><div class="brand-name">Advance</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     CATÁLOGO
+═══════════════════════════════════════════ -->
+<section id="catalogo">
+  <div class="container">
+    <div class="catalogo-header fade-up">
+      <div class="section-tag"><i class="fa-solid fa-store"></i> Tienda en línea</div>
+      <h2 class="section-title">Catálogo PetGenius</h2>
+      <p class="section-sub" style="margin:0 auto;">Todos los productos que tu mascota necesita, al mejor precio y con entrega a domicilio en Honduras.</p>
+    </div>
+    <!-- Controls -->
+    <div class="catalog-controls fade-up">
+      <div class="search-wrap">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="productSearch" placeholder="Buscar productos..." onkeyup="filterProducts()">
+      </div>
+      <div class="filter-cats" id="filterCats">
+        <button class="filter-btn active" onclick="setFilter('todos', this)">Todos</button>
+        <button class="filter-btn" onclick="setFilter('vestuario', this)">👗 Vestuario</button>
+        <button class="filter-btn" onclick="setFilter('alimentos', this)">🍖 Alimentos</button>
+        <button class="filter-btn" onclick="setFilter('grooming', this)">✂️ Grooming</button>
+        <button class="filter-btn" onclick="setFilter('higiene', this)">🧼 Higiene</button>
+        <button class="filter-btn" onclick="setFilter('snacks', this)">🦴 Snacks</button>
+        <button class="filter-btn" onclick="setFilter('salud', this)">💊 Salud</button>
+        <button class="filter-btn" onclick="setFilter('paseo', this)">🎾 Paseo</button>
+      </div>
+      <div class="price-filter">
+        <label>Precio máx:</label>
+        <input type="range" id="priceRange" min="100" max="3000" value="3000" step="50" oninput="filterProducts()">
+        <span id="priceVal">L 3,000</span>
+      </div>
+    </div>
+    <!-- Products Grid -->
+    <div class="products-grid" id="productsGrid">
+      <div class="no-results" id="noResults">
+        <i class="fa-solid fa-search"></i>
+        <p>No se encontraron productos. Intenta con otra búsqueda.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     MODAL PRODUCTO
+═══════════════════════════════════════════ -->
+<div class="modal-overlay" id="productModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+    <div class="modal-grid">
+      <div class="modal-img"><img id="modalImg" src="" alt=""></div>
+      <div class="modal-info">
+        <div class="modal-cat" id="modalCat"></div>
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <p class="modal-desc" id="modalDesc"></p>
+        <ul class="modal-benefits" id="modalBenefits"></ul>
+        <div class="modal-price-row">
+          <span class="modal-price" id="modalPrice"></span>
+          <span class="modal-price-old" id="modalPriceOld"></span>
+          <span class="avail-badge avail-yes" id="modalAvail">En stock ✓</span>
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-primary" id="modalAddCart" style="justify-content:center;"><i class="fa-solid fa-bag-shopping"></i> Agregar al carrito</button>
+          <a class="btn btn-wpp" id="modalWpp" href="#" target="_blank" style="justify-content:center;"><i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp</a>
+        </div>
+        <div class="modal-nav">
+          <button class="modal-nav-btn" id="modalPrev" onclick="navigateModal(-1)"><i class="fa-solid fa-chevron-left"></i> Anterior</button>
+          <button class="modal-nav-btn" id="modalNext" onclick="navigateModal(1)">Siguiente <i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     CARRITO LATERAL
+═══════════════════════════════════════════ -->
+<div class="cart-overlay" id="cartOverlay">
+  <div class="cart-panel">
+    <div class="cart-header">
+      <h2><i class="fa-solid fa-bag-shopping" style="color:var(--primary);margin-right:8px;"></i> Mi Carrito</h2>
+      <button class="cart-close-btn" onclick="closeCart()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <p>Tu carrito está vacío.<br>¡Agrega productos y empieza a comprar!</p>
+      </div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total-row">
+        <span>Subtotal</span><span id="cartSubtotal">L 0.00</span>
+      </div>
+      <div class="cart-total-row">
+        <span style="font-size:1rem;font-weight:700;color:var(--navy);">Total referencial</span>
+        <span class="cart-total-val" id="cartTotal">L 0.00</span>
+      </div>
+      <button class="cart-checkout-btn" onclick="checkout()">
+        <i class="fa-brands fa-whatsapp" style="font-size:1.2rem;"></i> Finalizar pedido por WhatsApp
+      </button>
+      <button class="cart-clear-btn" onclick="clearCart()"><i class="fa-solid fa-trash"></i> Vaciar carrito</button>
+    </div>
+  </div>
+</div>
+
+<!-- Confirm overlay -->
+<div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-box">
+    <div class="confirm-icon">🛍️</div>
+    <h2>¿Todo listo para tu pedido?</h2>
+    <p>Te redirigiremos a WhatsApp con el detalle completo de tu orden. Nuestro equipo lo procesará de inmediato.</p>
+    <div class="confirm-btns">
+      <button class="btn btn-outline" onclick="closeConfirm()">Seguir comprando</button>
+      <button class="btn btn-wpp" onclick="sendWhatsApp()"><i class="fa-brands fa-whatsapp"></i> Confirmar pedido</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     NEWSLETTER
+═══════════════════════════════════════════ -->
+<section id="newsletter">
+  <div class="newsletter-bg"></div>
+  <div class="container newsletter-inner">
+    <div class="newsletter-badge fade-up"><i class="fa-solid fa-envelope-open-text"></i> Club exclusivo</div>
+    <h2 class="newsletter-title fade-up">¡Únete al club <span>PetGenius</span>! 🐾</h2>
+    <p class="newsletter-sub fade-up">Regístrate hoy, dinos el nombre de tu mascota y recibe un cupón de <strong>15% de descuento</strong> en tu primera compra 🎁</p>
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.85);padding:8px 20px;border-radius:99px;font-size:0.82rem;font-weight:700;margin-bottom:32px;">
+      <i class="fa-solid fa-users"></i> +50,000 dueños felices ya están en el club
+    </div>
+    <div class="newsletter-form-card fade-up" id="nlFormCard">
+      <form onsubmit="handleNewsletter(event)" id="nlForm">
+        <div class="nl-form-grid">
+          <div class="nl-input-wrap">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" class="nl-input" id="nlEmail" placeholder="Tu correo electrónico" required>
+          </div>
+          <div class="nl-input-wrap">
+            <i class="fa-solid fa-user"></i>
+            <input type="text" class="nl-input" id="nlName" placeholder="Tu nombre" required>
+          </div>
+          <div class="nl-input-wrap nl-full" style="padding-left:0;">
+            <select class="nl-select" id="nlPetType" required>
+              <option value="" disabled selected>¿Qué mascota tienes?</option>
+              <option value="Perro">🐕 Perro</option>
+              <option value="Gato">🐈 Gato</option>
+              <option value="Otro">🐾 Otro</option>
+            </select>
+          </div>
+          <div class="nl-input-wrap nl-full">
+            <i class="fa-solid fa-paw"></i>
+            <input type="text" class="nl-input" id="nlPetName" placeholder="Nombre de tu mascota" required>
+          </div>
+        </div>
+        <button type="submit" class="nl-submit">🐾 Quiero mi 15% OFF</button>
+      </form>
+      <div class="coupon-box" id="couponBox">
+        <div class="coupon-icon">🎁</div>
+        <p class="coupon-welcome" id="couponWelcome"></p>
+        <div class="coupon-code">PET15</div>
+        <p>Usa este código en tu primera compra y obtén <strong>15% de descuento</strong>.</p>
+        <p style="margin-top:8px;font-size:0.8rem;color:rgba(255,255,255,0.5);">Válido por 30 días desde tu registro.</p>
+      </div>
+      <p class="nl-legal">Prometemos enviar solo contenido útil, promociones y consejos para el bienestar de tu mascota 💙</p>
+      <!-- INTEGRACIÓN EMAIL MARKETING
+           Para conectar este formulario con EmailJS:
+           1. Crear cuenta en https://www.emailjs.com
+           2. Configurar servicio de correo (Gmail, etc.)
+           3. Crear template con variables: {{user_email}}, {{user_name}}, {{pet_name}}, {{pet_type}}
+           4. Incluir SDK: <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+           5. Reemplazar la función handleNewsletter con:
+              emailjs.send("SERVICE_ID", "TEMPLATE_ID", {
+                user_email: nlEmail.value,
+                user_name: nlName.value,
+                pet_name: nlPetName.value,
+                pet_type: nlPetType.value,
+                to_email: "lilibethbonilla08@gmail.com"
+              });
+           Para FormSubmit (más simple):
+           Cambiar action del form a: action="https://formsubmit.co/lilibethbonilla08@gmail.com"
+      -->
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     TESTIMONIOS
+═══════════════════════════════════════════ -->
+<section id="testimonios">
+  <div class="container">
+    <div class="testimonios-header fade-up">
+      <div class="section-tag"><i class="fa-solid fa-star"></i> Lo que dicen</div>
+      <h2 class="section-title">Testimonios de Clientes</h2>
+      <p class="section-sub" style="margin:0 auto;">Familias hondureñas que confían en PetGenius para el cuidado de sus mascotas.</p>
+    </div>
+    <div class="testimonios-grid">
+      <div class="testi-card fade-up">
+        <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="testi-text">"PetGenius cambió completamente la forma en que cuido a mi perro Rocky. Los recordatorios de vacunas son increíbles y los productos llegan rapidísimo a Tegucigalpa."</p>
+        <div class="testi-author">
+          <div class="testi-avatar"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="María"></div>
+          <div><div class="testi-name">María Fernández</div><div class="testi-pet">🐕 Mamá de Rocky (Golden Retriever)</div></div>
+        </div>
+      </div>
+      <div class="testi-card fade-up" style="transition-delay:0.1s;">
+        <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="testi-text">"El chatbot me ayudó a encontrar el alimento perfecto para mi gato Michi. La asesoría veterinaria virtual me ahorró tiempo y dinero. ¡Totalmente recomendado!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Carlos"></div>
+          <div><div class="testi-name">Carlos Mendoza</div><div class="testi-pet">🐈 Papá de Michi (Siamés)</div></div>
+        </div>
+      </div>
+      <div class="testi-card fade-up" style="transition-delay:0.2s;">
+        <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+        <p class="testi-text">"Las promociones son reales y los precios son justos. El servicio de grooming que contraté fue excelente. Mi Bella quedó preciosa. Definitivamente vuelvo."</p>
+        <div class="testi-author">
+          <div class="testi-avatar"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Ana"></div>
+          <div><div class="testi-name">Ana Suazo</div><div class="testi-pet">🐕 Mamá de Bella (Poodle)</div></div>
+        </div>
+      </div>
+      <div class="testi-card fade-up" style="transition-delay:0.3s;">
+        <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="testi-text">"Compré el pack de salud preventiva y la diferencia en la energía de mi perro es notable. La plataforma es muy fácil de usar y el seguimiento nutricional me encanta."</p>
+        <div class="testi-author">
+          <div class="testi-avatar"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" alt="Luis"></div>
+          <div><div class="testi-name">Luis Aguilar</div><div class="testi-pet">🐕 Papá de Thor (Labrador)</div></div>
+        </div>
+      </div>
+      <div class="testi-card fade-up" style="transition-delay:0.4s;">
+        <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="testi-text">"Desde San Pedro Sula y me llegó todo en 48 horas. El empaque es muy cuidadoso y los productos son exactamente como se muestran. ¡Excelente ecommerce!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80" alt="Sofía"></div>
+          <div><div class="testi-name">Sofía Hernández</div><div class="testi-pet">🐈 Mamá de Luna (Angora)</div></div>
+        </div>
+      </div>
+      <div class="testi-card fade-up" style="transition-delay:0.5s;">
+        <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="testi-text">"El asistente virtual respondió mis preguntas en segundos. Pedí el combo de snacks y mis dos perros lo adoraron. La experiencia de compra es de primera clase."</p>
+        <div class="testi-author">
+          <div class="testi-avatar"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="Roberto"></div>
+          <div><div class="testi-name">Roberto Zelaya</div><div class="testi-pet">🐕 Papá de Max y Kira</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     MESA DE AYUDA
+═══════════════════════════════════════════ -->
+<section id="mesa-ayuda">
+  <div class="container">
+    <div class="ayuda-header fade-up">
+      <div class="section-tag"><i class="fa-solid fa-life-ring"></i> Soporte</div>
+      <h2 class="section-title">Mesa de Ayuda</h2>
+      <p class="section-sub" style="margin:0 auto;">Encuentra respuestas rápidas o contáctanos directamente. Estamos aquí para ayudarte.</p>
+    </div>
+    <div class="ayuda-grid">
+      <!-- FAQ -->
+      <div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">¿Cuáles son los horarios de atención? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-a"><div class="faq-a-inner">Atendemos de lunes a viernes de 8:00 AM a 6:00 PM y sábados de 9:00 AM a 3:00 PM. Nuestro chatbot está disponible las 24 horas para consultas básicas.</div></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">¿Cómo funciona el servicio de Grooming? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-a"><div class="faq-a-inner">Nuestro servicio de grooming incluye baño, secado, corte de pelo, limpieza de oídos, corte de uñas y perfumado. Puedes agendarlo directamente por WhatsApp o a través de nuestra plataforma.</div></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">¿Hacen entregas a domicilio? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-a"><div class="faq-a-inner">Sí, hacemos entregas en Tegucigalpa, San Pedro Sula y ciudades principales de Honduras. El tiempo de entrega es de 24-48 horas. Los pedidos mayores a L 800 tienen envío gratis.</div></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">¿Qué métodos de pago aceptan? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-a"><div class="faq-a-inner">Aceptamos transferencias bancarias (Atlántida, Occidente, BAC), pago por Tigo Money, PayPal y efectivo contra entrega. Todos los pagos son seguros y verificados.</div></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">¿Cómo funciona el recordatorio de vacunas? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-a"><div class="faq-a-inner">Registra a tu mascota en nuestra plataforma con su fecha de nacimiento y raza. Nuestro sistema generará automáticamente el calendario de vacunación y te enviará recordatorios por WhatsApp y correo.</div></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">¿Puedo hacer devoluciones? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-a"><div class="faq-a-inner">Sí, aceptamos devoluciones dentro de los 7 días posteriores a la compra si el producto está en perfectas condiciones y no ha sido abierto. Escríbenos por WhatsApp para coordinar.</div></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">¿Tienen asesoría veterinaria online? <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="faq-a"><div class="faq-a-inner">Sí, contamos con veterinarios certificados disponibles para consultas virtuales. Puedes agendar una sesión de 30 minutos para orientación básica sobre salud, nutrición y comportamiento de tu mascota.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contacto rápido -->
+      <div class="ayuda-contact-cards">
+        <div class="contact-quick-card">
+          <div class="contact-card-icon green"><i class="fa-brands fa-whatsapp"></i></div>
+          <div class="contact-card-text">
+            <h4>WhatsApp Directo</h4>
+            <p>Respuesta inmediata de lunes a sábado</p>
+            <div class="status-dot">En línea ahora</div>
+            <a href="https://wa.me/50493475587?text=%C2%A1Hola!%20necesito%20ayuda" target="_blank" class="btn btn-wpp" style="margin-top:10px;padding:10px 20px;font-size:0.82rem;">
+              <i class="fa-brands fa-whatsapp"></i> Escribir ahora
+            </a>
+          </div>
+        </div>
+        <div class="contact-quick-card">
+          <div class="contact-card-icon teal"><i class="fa-solid fa-envelope"></i></div>
+          <div class="contact-card-text">
+            <h4>Correo Electrónico</h4>
+            <p>lilibethbonilla08@gmail.com<br>Respuesta en menos de 2 horas</p>
+            <a href="mailto:lilibethbonilla08@gmail.com" class="btn btn-primary" style="margin-top:10px;padding:10px 20px;font-size:0.82rem;">
+              <i class="fa-solid fa-paper-plane"></i> Enviar correo
+            </a>
+          </div>
+        </div>
+        <div class="contact-quick-card">
+          <div class="contact-card-icon orange"><i class="fa-solid fa-clock"></i></div>
+          <div class="contact-card-text">
+            <h4>Horarios de Atención</h4>
+            <p>Lun–Vie: 8:00 AM – 6:00 PM<br>Sábados: 9:00 AM – 3:00 PM<br>Domingos: Solo emergencias</p>
+          </div>
+        </div>
+        <div class="contact-quick-card">
+          <div class="contact-card-icon purple"><i class="fa-solid fa-robot"></i></div>
+          <div class="contact-card-text">
+            <h4>Asistente Virtual IA</h4>
+            <p>Disponible 24/7 para consultas básicas sobre productos, pedidos y servicios.</p>
+            <button class="btn btn-primary" onclick="openChat()" style="margin-top:10px;padding:10px 20px;font-size:0.82rem;">
+              <i class="fa-solid fa-comment-dots"></i> Chatear ahora
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     CONTACTO
+═══════════════════════════════════════════ -->
+<section id="contacto">
+  <div class="container">
+    <div class="contacto-header fade-up">
+      <div class="section-tag"><i class="fa-solid fa-phone"></i> Contáctanos</div>
+      <h2 class="section-title">¿Cómo podemos ayudarte?</h2>
+      <p class="section-sub" style="margin:0 auto;">Estamos disponibles para cualquier consulta. Tu satisfacción y la salud de tu mascota son nuestra prioridad.</p>
+    </div>
+    <div class="contacto-grid">
+      <div class="contacto-info fade-up">
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><i class="fa-brands fa-whatsapp"></i></div>
+          <div class="contact-info-text">
+            <h4>WhatsApp</h4>
+            <p>+504 9347-5587<br>Respuesta inmediata</p>
+            <a href="https://wa.me/50493475587" target="_blank" class="btn btn-wpp" style="padding:10px 20px;font-size:0.82rem;margin-top:6px;">Escribir ahora</a>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div class="contact-info-text">
+            <h4>Correo Electrónico</h4>
+            <p>lilibethbonilla08@gmail.com</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="contact-info-text">
+            <h4>Ubicación</h4>
+            <p>Tegucigalpa, Honduras<br>Col. Lomas del Guijarro</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon"><i class="fa-solid fa-share-nodes"></i></div>
+          <div class="contact-info-text">
+            <h4>Redes Sociales</h4>
+            <div class="social-links">
+              <a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="social-btn"><i class="fa-brands fa-tiktok"></i></a>
+              <a href="#" class="social-btn"><i class="fa-brands fa-youtube"></i></a>
+              <a href="#" class="social-btn"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="map-sim">
+          <div class="map-sim-inner">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Tegucigalpa, Honduras 🇭🇳</span>
+            <p style="font-size:0.75rem;color:var(--text-muted);margin-top:4px;">Col. Lomas del Guijarro</p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-card fade-up" style="transition-delay:0.2s;">
+        <h3 style="font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:24px;">Envíanos un mensaje</h3>
+        <form onsubmit="handleContact(event)">
+          <div class="cf-grid">
+            <div class="cf-group"><label>Nombre completo</label><input type="text" class="cf-input" placeholder="Tu nombre" required></div>
+            <div class="cf-group"><label>Correo electrónico</label><input type="email" class="cf-input" placeholder="tu@email.com" required></div>
+          </div>
+          <div class="cf-group"><label>Teléfono (opcional)</label><input type="tel" class="cf-input" placeholder="+504 XXXX-XXXX"></div>
+          <div class="cf-group"><label>Asunto</label>
+            <select class="cf-input">
+              <option>Consulta sobre productos</option>
+              <option>Seguimiento de pedido</option>
+              <option>Servicio de Grooming</option>
+              <option>Asesoría veterinaria</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="cf-group"><label>Mensaje</label><textarea class="cf-textarea" placeholder="Cuéntanos cómo podemos ayudarte..." required></textarea></div>
+          <button type="submit" class="cf-submit"><i class="fa-solid fa-paper-plane"></i> Enviar mensaje</button>
+          <p class="cf-note">
+            <!-- INTEGRACIÓN FORMULARIO:
+                 Para recibir estos mensajes en lilibethbonilla08@gmail.com, 
+                 cambia la action del form a: action="https://formsubmit.co/lilibethbonilla08@gmail.com" method="POST"
+                 O integra EmailJS con los pasos indicados en la sección Newsletter. -->
+            Este formulario está preparado para integración con EmailJS o FormSubmit. Ver comentarios en el código.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo"><div class="logo-icon">🐾</div>Pet<span style="color:var(--primary)">Genius</span></div>
+        <p>Plataforma inteligente de bienestar y cuidado animal en Honduras. Tecnología, amor y ciencia al servicio de tu mascota.</p>
+        <div class="social-links">
+          <a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-btn"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#" class="social-btn"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Tienda</h4>
+        <ul>
+          <li><a href="#catalogo">Catálogo completo</a></li>
+          <li><a href="#promociones">Ofertas y Promos</a></li>
+          <li><a href="#marcas">Marcas premium</a></li>
+          <li><a href="#catalogo">Productos nuevos</a></li>
+          <li><a href="#catalogo">Más vendidos</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#servicios">Grooming Profesional</a></li>
+          <li><a href="#servicios">Asesoría Veterinaria</a></li>
+          <li><a href="#servicios">Recordatorios IA</a></li>
+          <li><a href="#servicios">Plan Nutricional</a></li>
+          <li><a href="#servicios">Entregas a domicilio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#quienes-somos">Quiénes somos</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+          <li><a href="#newsletter">Newsletter</a></li>
+          <li><a href="#mesa-ayuda">Mesa de Ayuda</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 <span>PetGenius Honduras</span>. Todos los derechos reservados. Hecho con 💚 en Tegucigalpa.</p>
+      <p style="font-size:0.75rem;color:rgba(255,255,255,0.25);">RTN: 08011998012345 | Tegucigalpa, Honduras</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ BOTONES FLOTANTES ═══ -->
+<a href="https://wa.me/50493475587?text=%C2%A1Hola!%20%F0%9F%91%8B%F0%9F%90%BE%0AGracias%20por%20escribir%20a%20PetGenius.%20Estamos%20felices%20de%20ayudarte%20con%20el%20cuidado%20de%20tu%20mascota%20%F0%9F%92%99%0ACu%C3%A9ntanos%20qu%C3%A9%20necesitas%20y%20te%20atenderemos%20con%20gusto%20%E2%9C%A8" target="_blank" class="wpp-float" title="Hablar por WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<button class="chat-float" id="chatFloat" onclick="toggleChat()" title="Asistente Virtual">
+  <span class="chat-unread" id="chatUnread">1</span>
+  <i class="fa-solid fa-comment-dots" id="chatFloatIcon"></i>
+</button>
+
+<!-- ═══ CHATBOT ═══ -->
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-panel-header">
+    <div class="chat-avatar-wrap">
+      <div class="chat-avatar">🤖</div>
+      <div class="chat-online"></div>
+    </div>
+    <div class="chat-panel-title">
+      <h3>Asistente PetGenius</h3>
+      <span>Inteligencia Artificial • En línea</span>
+    </div>
+    <button class="chat-close" onclick="toggleChat()"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div class="chat-messages" id="chatMessages"></div>
+  <div class="chat-suggestions" id="chatSuggestions">
+    <button class="chat-sug-btn" onclick="sendSug('¿Cuáles son los horarios?')">🕐 Horarios</button>
+    <button class="chat-sug-btn" onclick="sendSug('¿Cómo funciona el Grooming?')">✂️ Grooming</button>
+    <button class="chat-sug-btn" onclick="sendSug('¿Hacen entregas?')">🚚 Entregas</button>
+    <button class="chat-sug-btn" onclick="sendSug('¿Qué productos tienen?')">🛍️ Productos</button>
+    <button class="chat-sug-btn" onclick="sendSug('¿Cómo contactarlos?')">📞 Contacto</button>
+    <button class="chat-sug-btn" onclick="sendSug('Seguimiento de mi pedido')">📦 Mi pedido</button>
+  </div>
+  <div class="chat-input-row">
+    <input type="text" class="chat-input" id="chatInput" placeholder="Escribe tu pregunta..." onkeydown="if(event.key==='Enter') sendChat()">
+    <button class="chat-send" onclick="sendChat()"><i class="fa-solid fa-paper-plane"></i></button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════ -->
+<script>
+// ═══════════════════════════════════════════
+// PRODUCTOS DATA
+// ═══════════════════════════════════════════
+const products = [
+  { id:1, name:"Abrigo Impermeable Perro Pequeño", cat:"vestuario", price:380, oldPrice:0, img:"https://images.unsplash.com/photo-1601758174493-45d0a4d3e407?w=400&q=75", desc:"Abrigo impermeable con forro suave para perros pequeños. Protege del frío y la lluvia.", badge:"Nuevo", avail:true, benefits:["Material impermeable de alta calidad","Forro polar interior suave","Cierre ajustable fácil de usar","Disponible en varios colores"] },
+  { id:2, name:"Suéter Tejido para Gato", cat:"vestuario", price:260, oldPrice:320, img:"https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&q=75", desc:"Suéter tejido artesanalmente para gatos, cómodo y elegante.", badge:"Sale", avail:true, benefits:["Tejido suave antiestático","Diseño que permite movimiento libre","Fácil de lavar","Múltiples tallas disponibles"] },
+  { id:3, name:"Royal Canin Adulto 10kg", cat:"alimentos", price:1350, oldPrice:1600, img:"https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?w=400&q=75", desc:"Alimento completo y equilibrado para perros adultos de todas las razas.", badge:"Más vendido", avail:true, benefits:["Formula veterinaria balanceada","Fortalece sistema inmune","Mejora pelaje y piel","Sin colorantes artificiales"] },
+  { id:4, name:"Pro Plan Cachorro Pollo 3kg", cat:"alimentos", price:620, oldPrice:0, img:"https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=400&q=75", desc:"Nutrición especializada para cachorros en etapa de crecimiento.", badge:"Nuevo", avail:true, benefits:["Alto contenido proteico","DHA para desarrollo cerebral","Calcio para huesos fuertes","Sabor preferido por cachorros"] },
+  { id:5, name:"Kit Grooming Completo 5 Piezas", cat:"grooming", price:890, oldPrice:1100, img:"https://images.unsplash.com/photo-1581888227599-779811939961?w=400&q=75", desc:"Set profesional de grooming: shampoo, acondicionador, perfume, cepillo y cortauñas.", badge:"HOT", avail:true, benefits:["Fórmula pH balanceado","Sin parabenos ni sulfatos","Aroma duradero 48 horas","Incluye guía de uso profesional"] },
+  { id:6, name:"Shampoo Antipulgas Perro", cat:"grooming", price:185, oldPrice:0, img:"https://images.unsplash.com/photo-1625794084867-8ddd239946b1?w=400&q=75", desc:"Shampoo medicado que elimina pulgas y garrapatas de forma segura y efectiva.", badge:"", avail:true, benefits:["Acción antiparasitaria comprobada","Suave para piel sensible","Aroma fresco a lavanda","Uso mensual recomendado"] },
+  { id:7, name:"Toallitas Húmedas para Mascotas x50", cat:"higiene", price:145, oldPrice:0, img:"https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=400&q=75", desc:"Toallitas húmedas sin alcohol para limpieza rápida de patas, orejas y cuerpo.", badge:"", avail:true, benefits:["Sin alcohol ni tóxicos","Aloe vera y vitamina E","Biodegradables","Para todas las mascotas"] },
+  { id:8, name:"Arena Higiénica Gato 10L Premium", cat:"higiene", price:220, oldPrice:270, img:"https://images.unsplash.com/photo-1560807707-8cc77767d783?w=400&q=75", desc:"Arena aglomerante de alta calidad con control de olores de hasta 7 días.", badge:"Sale", avail:true, benefits:["Control de olor 7 días","Aglomeración instantánea","Sin polvo","Fácil limpieza diaria"] },
+  { id:9, name:"Snacks Dentales Perro x30", cat:"snacks", price:165, oldPrice:0, img:"https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=75", desc:"Premios dentales que limpian los dientes mientras tu perro los disfruta.", badge:"Nuevo", avail:true, benefits:["Limpia placa bacteriana","Vitaminas A, C, E","Textura crujiente especial","Sabor irresistible a pollo"] },
+  { id:10, name:"Snacks Naturales Mix Gato x20", cat:"snacks", price:135, oldPrice:0, img:"https://images.unsplash.com/photo-1574158622682-e40e69881006?w=400&q=75", desc:"Snacks naturales deshidratados de pescado y pollo para gatos exigentes.", badge:"", avail:true, benefits:["100% ingredientes naturales","Sin conservantes artificiales","Alto en proteína","Irresistible para gatos"] },
+  { id:11, name:"Antipulgas Pipeta Mensual", cat:"salud", price:195, oldPrice:240, img:"https://images.unsplash.com/photo-1612531385446-f7e6d131e1d0?w=400&q=75", desc:"Tratamiento antiparasitario externo de acción rápida y larga duración.", badge:"Recomendado", avail:true, benefits:["Protección 30 días garantizada","Elimina pulgas, garrapatas y piojos","Aplicación fácil en segundos","Para razas grandes y pequeñas"] },
+  { id:12, name:"Vitaminas para Pelaje Brillante", cat:"salud", price:320, oldPrice:380, img:"https://images.unsplash.com/photo-1576201836106-db1758fd1c97?w=400&q=75", desc:"Suplemento de omega 3, 6 y vitamina E para un pelaje brillante y saludable.", badge:"Sale", avail:true, benefits:["Omega 3 y 6 esenciales","Reduce caída de pelo","Piel hidratada y sana","Formulación veterinaria"] },
+  { id:13, name:"Correa Retráctil 5 Metros", cat:"paseo", price:285, oldPrice:0, img:"https://images.unsplash.com/photo-1601758003122-53c40e686a19?w=400&q=75", desc:"Correa retráctil resistente con freno ergonómico y cinta reflectante para paseos seguros.", badge:"Nuevo", avail:true, benefits:["Cinta reflectante de seguridad","Freno ergonómico de precisión","Resistente hasta 45kg","Diseño antideslizante"] },
+  { id:14, name:"Juguete Interactivo Pelota Dispensadora", cat:"paseo", price:245, oldPrice:0, img:"https://images.unsplash.com/photo-1535930891776-0c2dfb7fda1a?w=400&q=75", desc:"Pelota dispensadora de snacks que mantiene a tu mascota activa y estimulada mentalmente.", badge:"", avail:true, benefits:["Estimulación mental y física","Material ABS no tóxico","Apto para todas las razas","Fácil de llenar y limpiar"] },
+  { id:15, name:"Cama Ortopédica Premium L", cat:"vestuario", price:750, oldPrice:950, img:"https://images.unsplash.com/photo-1507146426996-ef05306b995a?w=400&q=75", desc:"Cama con espuma viscoelástica ortopédica ideal para perros mayores o con artritis.", badge:"Premium", avail:true, benefits:["Espuma viscoelástica médica","Funda lavable y antialérgica","Apto para perros de hasta 30kg","Ideal para mascotas mayores"] },
+  { id:16, name:"Rascador Torre Gato 70cm", cat:"paseo", price:480, oldPrice:580, img:"https://images.unsplash.com/photo-1555443805-658637491dd4?w=400&q=75", desc:"Torre rascador con plataformas, cueva y juguetes colgantes para la diversión total.", badge:"HOT", avail:true, benefits:["Sisal natural resistente","Plataformas estables antivuelco","Incluye 3 juguetes colgantes","Diseño moderno para el hogar"] },
+];
+
+// ═══════════════════════════════════════════
+// ESTADO
+// ═══════════════════════════════════════════
+let cart = JSON.parse(localStorage.getItem('pg_cart') || '[]');
+let currentFilter = 'todos';
+let currentModalIndex = 0;
+let filteredProducts = [...products];
+
+// ═══════════════════════════════════════════
+// NAVBAR
+// ═══════════════════════════════════════════
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+  updateActiveNav();
+});
+
+function updateActiveNav() {
+  const sections = ['inicio','quienes-somos','servicios','catalogo','promociones','marcas','newsletter','testimonios','mesa-ayuda','contacto'];
+  const links = document.querySelectorAll('.nav-links a');
+  let current = '';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && window.scrollY >= el.offsetTop - 100) current = id;
+  });
+  links.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+  });
+}
+
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('mobileMenu').classList.add('open');
+});
+document.getElementById('mobileClose').addEventListener('click', closeMobile);
+function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+// ═══════════════════════════════════════════
+// FADE-UP ON SCROLL
+// ═══════════════════════════════════════════
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// ═══════════════════════════════════════════
+// ANIMATED STATS
+// ═══════════════════════════════════════════
+const statObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting && !e.target.dataset.animated) {
+      e.target.dataset.animated = '1';
+      const target = parseInt(e.target.dataset.target);
+      animateCount(e.target, target);
+    }
+  });
+}, { threshold: 0.4 });
+document.querySelectorAll('.stat-num[data-target]').forEach(el => statObserver.observe(el));
+
+function animateCount(el, target) {
+  const duration = 1600;
+  const start = Date.now();
+  const tick = () => {
+    const elapsed = Date.now() - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const value = Math.floor(eased * target);
+    el.textContent = value.toLocaleString('es-HN');
+    if (progress < 1) requestAnimationFrame(tick);
+    else el.textContent = target.toLocaleString('es-HN') + '+';
+  };
+  requestAnimationFrame(tick);
+}
+
+// ═══════════════════════════════════════════
+// CATÁLOGO
+// ═══════════════════════════════════════════
+function renderProducts(list) {
+  const grid = document.getElementById('productsGrid');
+  const noRes = document.getElementById('noResults');
+  const prods = grid.querySelectorAll('.product-card');
+  prods.forEach(p => p.remove());
+
+  if (list.length === 0) {
+    noRes.style.display = 'block';
+    return;
+  }
+  noRes.style.display = 'none';
+
+  list.forEach((p, i) => {
+    const card = document.createElement('div');
+    card.className = 'product-card fade-up';
+    card.style.transitionDelay = (i * 0.05) + 's';
+    card.innerHTML = `
+      <div class="product-img-wrap">
+        <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=400&q=75'">
+        <div class="product-badges">${p.badge ? `<span class="badge ${getBadgeClass(p.badge)}">${p.badge}</span>` : ''}</div>
+        <button class="quick-view-btn" onclick="openModal(${p.id})"><i class="fa-solid fa-eye"></i> Vista rápida</button>
+      </div>
+      <div class="product-body">
+        <div class="product-cat">${getCatLabel(p.cat)}</div>
+        <div class="product-name">${p.name}</div>
+        <div class="product-desc">${p.desc}</div>
+        <div class="product-price-row">
+          <div>
+            <div class="product-price">L ${p.price.toLocaleString('es-HN')}</div>
+            ${p.oldPrice ? `<div class="product-price-old">L ${p.oldPrice.toLocaleString('es-HN')}</div>` : ''}
+          </div>
+          <span class="avail-badge ${p.avail ? 'avail-yes':'avail-no'}">${p.avail ? 'En stock ✓':'Agotado'}</span>
+        </div>
+        <div class="product-actions">
+          <button class="add-cart-btn" onclick="addToCart(${p.id})" ${!p.avail ? 'disabled style="opacity:0.5"' : ''}>
+            <i class="fa-solid fa-bag-shopping"></i> Agregar
+          </button>
+          <a href="https://wa.me/50493475587?text=Hola!%20Me%20interesa%20el%20producto:%20${encodeURIComponent(p.name)}%20(L%20${p.price})" target="_blank" class="wpp-btn-sm"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>`;
+    grid.appendChild(card);
+    setTimeout(() => card.classList.add('visible'), 50 + i * 60);
+  });
+}
+
+function getBadgeClass(b) {
+  const m = { 'Nuevo':'badge-new','HOT':'badge-hot','Sale':'badge-sale','Más vendido':'badge-hot','Recomendado':'badge-primary','Premium':'badge-primary','HOT':'badge-hot' };
+  return m[b] || 'badge-primary';
+}
+function getCatLabel(c) {
+  const m = { vestuario:'👗 Vestuario', alimentos:'🍖 Alimentos', grooming:'✂️ Grooming', higiene:'🧼 Higiene', snacks:'🦴 Snacks', salud:'💊 Salud', paseo:'🎾 Paseo' };
+  return m[c] || c;
+}
+
+function setFilter(cat, btn) {
+  currentFilter = cat;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  filterProducts();
+}
+
+function filterProducts() {
+  const q = document.getElementById('productSearch').value.toLowerCase();
+  const maxPrice = parseInt(document.getElementById('priceRange').value);
+  document.getElementById('priceVal').textContent = 'L ' + maxPrice.toLocaleString('es-HN');
+  filteredProducts = products.filter(p => {
+    const matchCat = currentFilter === 'todos' || p.cat === currentFilter;
+    const matchQ = p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q) || getCatLabel(p.cat).toLowerCase().includes(q);
+    const matchPrice = p.price <= maxPrice;
+    return matchCat && matchQ && matchPrice;
+  });
+  renderProducts(filteredProducts);
+}
+
+// Init
+renderProducts(products);
+
+// ═══════════════════════════════════════════
+// MODAL
+// ═══════════════════════════════════════════
+function openModal(id) {
+  const idx = products.findIndex(p => p.id === id);
+  if (idx === -1) return;
+  currentModalIndex = idx;
+  loadModal(products[idx]);
+  document.getElementById('productModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function loadModal(p) {
+  const mImg = document.getElementById('modalImg');
+  mImg.onerror = function(){ this.onerror=null; this.src='https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=400&q=75'; };
+  mImg.src = p.img;
+  mImg.alt = p.name;
+  document.getElementById('modalCat').textContent = getCatLabel(p.cat);
+  document.getElementById('modalTitle').textContent = p.name;
+  document.getElementById('modalDesc').textContent = p.desc;
+  document.getElementById('modalPrice').textContent = 'L ' + p.price.toLocaleString('es-HN');
+  document.getElementById('modalPriceOld').textContent = p.oldPrice ? 'L ' + p.oldPrice.toLocaleString('es-HN') : '';
+  document.getElementById('modalAvail').textContent = p.avail ? 'En stock ✓' : 'Agotado';
+  document.getElementById('modalAvail').className = 'avail-badge ' + (p.avail ? 'avail-yes' : 'avail-no');
+  const bl = document.getElementById('modalBenefits');
+  bl.innerHTML = p.benefits.map(b => `<li><i class="fa-solid fa-circle-check"></i> ${b}</li>`).join('');
+  document.getElementById('modalAddCart').onclick = () => { addToCart(p.id); closeModal(); };
+  document.getElementById('modalWpp').href = `https://wa.me/50493475587?text=Hola!%20Me%20interesa:%20${encodeURIComponent(p.name)}%20-%20L%20${p.price}`;
+}
+
+function closeModal() {
+  document.getElementById('productModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function navigateModal(dir) {
+  currentModalIndex = (currentModalIndex + dir + products.length) % products.length;
+  loadModal(products[currentModalIndex]);
+}
+
+document.getElementById('productModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+// ═══════════════════════════════════════════
+// CARRITO
+// ═══════════════════════════════════════════
+function saveCart() { localStorage.setItem('pg_cart', JSON.stringify(cart)); }
+
+function addToCart(id) {
+  const p = products.find(x => x.id === id);
+  if (!p) return;
+  const existing = cart.find(x => x.id === id);
+  if (existing) { existing.qty++; }
+  else { cart.push({ id: p.id, name: p.name, price: p.price, img: p.img, qty: 1 }); }
+  saveCart();
+  updateCartUI();
+  showToast('¡Agregado al carrito! 🛍️', 'success');
+}
+
+function addToCartQuick(name, price, img) {
+  const existing = cart.find(x => x.name === name);
+  if (existing) { existing.qty++; }
+  else { cart.push({ id: Date.now(), name, price, img, qty: 1 }); }
+  saveCart();
+  updateCartUI();
+  showToast('¡Agregado al carrito! 🛍️', 'success');
+}
+
+function removeFromCart(id) {
+  cart = cart.filter(x => x.id !== id);
+  saveCart();
+  updateCartUI();
+  renderCartItems();
+}
+
+function updateQty(id, delta) {
+  const item = cart.find(x => x.id === id);
+  if (!item) return;
+  item.qty = Math.max(1, item.qty + delta);
+  saveCart();
+  updateCartUI();
+  renderCartItems();
+}
+
+function clearCart() {
+  cart = [];
+  saveCart();
+  updateCartUI();
+  renderCartItems();
+}
+
+function updateCartUI() {
+  const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+  const count = cart.reduce((s, i) => s + i.qty, 0);
+  const cc = document.getElementById('cartCount');
+  cc.textContent = count;
+  cc.style.display = count > 0 ? 'flex' : 'none';
+  document.getElementById('cartSubtotal').textContent = 'L ' + total.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  document.getElementById('cartTotal').textContent = 'L ' + total.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+function renderCartItems() {
+  const container = document.getElementById('cartItems');
+  if (cart.length === 0) {
+    container.innerHTML = `<div class="cart-empty"><i class="fa-solid fa-bag-shopping"></i><p>Tu carrito está vacío.<br>¡Agrega productos!</p></div>`;
+    return;
+  }
+  container.innerHTML = cart.map(item => `
+    <div class="cart-item">
+      <div class="cart-item-img"><img src="${item.img}" alt="${item.name}" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=120&q=70'"></div>
+      <div class="cart-item-info">
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-price">L ${(item.price * item.qty).toFixed(2)}</div>
+        <div class="cart-item-qty">
+          <button class="qty-btn" onclick="updateQty(${item.id},-1)"><i class="fa-solid fa-minus"></i></button>
+          <span class="qty-num">${item.qty}</span>
+          <button class="qty-btn" onclick="updateQty(${item.id},1)"><i class="fa-solid fa-plus"></i></button>
+        </div>
+      </div>
+      <button class="cart-item-remove" onclick="removeFromCart(${item.id})"><i class="fa-solid fa-xmark"></i></button>
+    </div>`).join('');
+}
+
+document.getElementById('cartBtn').addEventListener('click', openCart);
+function openCart() {
+  renderCartItems();
+  document.getElementById('cartOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeCart() {
+  document.getElementById('cartOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('cartOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeCart();
+});
+
+function checkout() {
+  if (cart.length === 0) { showToast('Tu carrito está vacío 😅', 'error'); return; }
+  closeCart();
+  document.getElementById('confirmOverlay').classList.add('open');
+}
+function closeConfirm() {
+  document.getElementById('confirmOverlay').classList.remove('open');
+}
+
+function sendWhatsApp() {
+  const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+  let msg = '✨ ¡Todo listo! Aquí tienes el total de tu orden:\n\n';
+  msg += '🛍️ *PEDIDO PetGenius*\n';
+  msg += '─────────────────\n';
+  cart.forEach(item => {
+    msg += `• ${item.name}\n  Cantidad: ${item.qty} × L ${item.price.toLocaleString('es-HN')} = L ${(item.price * item.qty).toLocaleString('es-HN')}\n`;
+  });
+  msg += '─────────────────\n';
+  msg += `💰 *TOTAL: L ${total.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}*\n\n`;
+  msg += 'Quedamos atentos al comprobante de pago para empezar a preparar tu pedido. ¡Muchas gracias por elegirnos! 🛍️\n\n';
+  msg += '📍 PetGenius Honduras | +504 9347-5587';
+  const url = 'https://wa.me/50493475587?text=' + encodeURIComponent(msg);
+  window.open(url, '_blank');
+  closeConfirm();
+  clearCart();
+  renderCartItems();
+  updateCartUI();
+  showToast('¡Pedido enviado! Revisa WhatsApp 🎉', 'success');
+}
+
+// Init cart from localStorage
+updateCartUI();
+
+// ═══════════════════════════════════════════
+// TOAST
+// ═══════════════════════════════════════════
+let toastTimeout;
+function showToast(msg, type = '') {
+  clearTimeout(toastTimeout);
+  const t = document.getElementById('toast');
+  const s = document.getElementById('toastMsg');
+  s.textContent = msg;
+  t.className = 'toast ' + type + ' show';
+  toastTimeout = setTimeout(() => t.classList.remove('show'), 3200);
+}
+
+// ═══════════════════════════════════════════
+// FAQ ACCORDION
+// ═══════════════════════════════════════════
+function toggleFaq(qEl) {
+  const item = qEl.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// ═══════════════════════════════════════════
+// NEWSLETTER
+// ═══════════════════════════════════════════
+function handleNewsletter(e) {
+  e.preventDefault();
+  const email = document.getElementById('nlEmail').value;
+  const name = document.getElementById('nlName').value;
+  const petType = document.getElementById('nlPetType').value;
+  const petName = document.getElementById('nlPetName').value;
+
+  // Guardar en localStorage
+  const sub = { email, name, petType, petName, date: new Date().toISOString() };
+  const subs = JSON.parse(localStorage.getItem('pg_subs') || '[]');
+  subs.push(sub);
+  localStorage.setItem('pg_subs', JSON.stringify(subs));
+
+  // Mostrar cupón
+  document.getElementById('nlForm').style.display = 'none';
+  document.getElementById('couponWelcome').textContent = `¡Bienvenido al club PetGenius, ${petName}! 🎉 Tu cupón ya está listo para usar.`;
+  document.getElementById('couponBox').classList.add('show');
+  showToast('¡Cupón generado! Usa PET15 en tu próxima compra 🎁', 'success');
+}
+
+// ═══════════════════════════════════════════
+// CONTACT FORM
+// ═══════════════════════════════════════════
+function handleContact(e) {
+  e.preventDefault();
+  showToast('¡Mensaje enviado! Te respondemos pronto 💙', 'success');
+  e.target.reset();
+}
+
+// ═══════════════════════════════════════════
+// COUNTDOWN
+// ═══════════════════════════════════════════
+function startCountdown(hId, mId, sId, totalSeconds) {
+  let remaining = totalSeconds;
+  function tick() {
+    const h = Math.floor(remaining / 3600);
+    const m = Math.floor((remaining % 3600) / 60);
+    const s = remaining % 60;
+    const hEl = document.getElementById(hId);
+    const mEl = document.getElementById(mId);
+    const sEl = document.getElementById(sId);
+    if (hEl) hEl.textContent = String(h).padStart(2,'0');
+    if (mEl) mEl.textContent = String(m).padStart(2,'0');
+    if (sEl) sEl.textContent = String(s).padStart(2,'0');
+    if (remaining > 0) { remaining--; setTimeout(tick, 1000); }
+  }
+  tick();
+}
+startCountdown('cd1h','cd1m','cd1s', 8*3600 + 34*60 + 12);
+startCountdown('cd2h','cd2m','cd2s', 12*3600 + 58*60 + 44);
+startCountdown('cd3h','cd3m','cd3s', 5*3600 + 22*60 + 7);
+
+// ═══════════════════════════════════════════
+// CHATBOT
+// ═══════════════════════════════════════════
+const chatResponses = {
+  horarios: "Nuestros horarios son:\n📅 Lunes a Viernes: 8:00 AM – 6:00 PM\n📅 Sábados: 9:00 AM – 3:00 PM\n🤖 Nuestro asistente está disponible 24/7 para consultas básicas.",
+  grooming: "Nuestro servicio de Grooming incluye:\n✂️ Baño y secado profesional\n✂️ Corte personalizado de pelo\n👂 Limpieza de orejas\n💅 Corte de uñas\n🌸 Perfumado premium\n\nAgenda por WhatsApp: +504 9347-5587",
+  entregas: "Hacemos entregas en toda Honduras:\n🚚 Tegucigalpa: 24 horas\n🚚 San Pedro Sula: 24-48 horas\n🚚 Otras ciudades: 48-72 horas\n\n🎁 Envío GRATIS en pedidos mayores a L 800",
+  productos: "Contamos con 7 categorías:\n👗 Vestuario y accesorios\n🍖 Alimentos premium\n✂️ Productos de Grooming\n🧼 Higiene y aseo\n🦴 Snacks y premios\n💊 Salud y prevención\n🎾 Paseo y entretenimiento\n\nVer catálogo completo en la sección de Tienda 👆",
+  contacto: "Puedes contactarnos por:\n📱 WhatsApp: +504 9347-5587\n📧 Email: lilibethbonilla08@gmail.com\n📍 Tegucigalpa, Honduras\n\n¡Respondemos en minutos! 💙",
+  pedido: "Para el seguimiento de tu pedido:\n1️⃣ Escríbenos por WhatsApp con tu número de orden\n2️⃣ Te actualizamos en tiempo real\n3️⃣ Recibirás confirmación cuando tu pedido esté en camino\n\nWhatsApp: +504 9347-5587",
+  vacunas: "Nuestro sistema de recordatorios de vacunas:\n🔔 Registro de tu mascota (raza + fecha de nacimiento)\n📅 Calendario de vacunación personalizado\n📱 Alertas automáticas por WhatsApp\n🏥 Lista de clínicas veterinarias aliadas\n\n¡Actívalo en tu perfil PetGenius!",
+  default: "¡Hola! 🐾 Soy el asistente virtual de PetGenius. Puedo ayudarte con:\n- Información sobre productos\n- Horarios y entregas\n- Servicio de Grooming\n- Vacunas y salud\n- Seguimiento de pedidos\n\n¿En qué te puedo ayudar hoy?"
+};
+
+function getResponse(msg) {
+  const m = msg.toLowerCase();
+  if (m.includes('horario') || m.includes('hora') || m.includes('atiend')) return chatResponses.horarios;
+  if (m.includes('grooming') || m.includes('baño') || m.includes('corte') || m.includes('estétic')) return chatResponses.grooming;
+  if (m.includes('entreg') || m.includes('envío') || m.includes('domicilio') || m.includes('shipping')) return chatResponses.entregas;
+  if (m.includes('product') || m.includes('tienda') || m.includes('catálog') || m.includes('comprar')) return chatResponses.productos;
+  if (m.includes('contact') || m.includes('teléfono') || m.includes('whatsapp') || m.includes('correo')) return chatResponses.contacto;
+  if (m.includes('pedido') || m.includes('seguimiento') || m.includes('orden') || m.includes('compra')) return chatResponses.pedido;
+  if (m.includes('vacuna') || m.includes('salud') || m.includes('vet')) return chatResponses.vacunas;
+  return chatResponses.default;
+}
+
+let chatOpen = false;
+
+function toggleChat() {
+  chatOpen = !chatOpen;
+  const panel = document.getElementById('chatPanel');
+  const icon = document.getElementById('chatFloatIcon');
+  const unread = document.getElementById('chatUnread');
+  panel.classList.toggle('open', chatOpen);
+  icon.className = chatOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-comment-dots';
+  unread.style.display = 'none';
+  if (chatOpen && document.getElementById('chatMessages').children.length === 0) {
+    setTimeout(() => addBotMsg("¡Hola! 👋 Soy PetBot, el asistente inteligente de PetGenius. ¿En qué puedo ayudarte hoy? 🐾"), 400);
+  }
+}
+
+function openChat() {
+  if (!chatOpen) toggleChat();
+}
+
+function addBotMsg(txt) {
+  const msgs = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = 'chat-msg bot';
+  div.innerHTML = `<div class="chat-bubble">${txt.replace(/\n/g,'<br>')}</div>`;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function addUserMsg(txt) {
+  const msgs = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = 'chat-msg user';
+  div.innerHTML = `<div class="chat-bubble">${txt}</div>`;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function sendChat() {
+  const input = document.getElementById('chatInput');
+  const msg = input.value.trim();
+  if (!msg) return;
+  addUserMsg(msg);
+  input.value = '';
+  setTimeout(() => addBotMsg(getResponse(msg)), 600 + Math.random() * 400);
+}
+
+function sendSug(txt) {
+  if (!chatOpen) openChat();
+  addUserMsg(txt);
+  setTimeout(() => addBotMsg(getResponse(txt)), 500);
+}
+
+// ═══════════════════════════════════════════
+// HERO PARTICLES (simple CSS dots)
+// ═══════════════════════════════════════════
+(function() {
+  const container = document.querySelector('.hero-particles');
+  if (!container) return;
+  for (let i = 0; i < 18; i++) {
+    const d = document.createElement('div');
+    const size = 2 + Math.random() * 4;
+    d.style.cssText = `
+      position:absolute;
+      width:${size}px;height:${size}px;
+      background:rgba(0,200,150,${0.15 + Math.random()*0.25});
+      border-radius:50%;
+      top:${Math.random()*100}%;left:${Math.random()*100}%;
+      animation:float${Math.floor(Math.random()*3)+1} ${6+Math.random()*8}s ease-in-out infinite;
+      animation-delay:${Math.random()*4}s;
+    `;
+    container.appendChild(d);
+  }
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes float1{0%,100%{transform:translateY(0) translateX(0)}50%{transform:translateY(-20px) translateX(8px)}}
+    @keyframes float2{0%,100%{transform:translateY(0) translateX(0)}50%{transform:translateY(15px) translateX(-12px)}}
+    @keyframes float3{0%,100%{transform:translateY(0) translateX(0)}50%{transform:translateY(-12px) translateX(-8px)}}
+  `;
+  document.head.appendChild(style);
+})();
+
+</script>
+</body>
+</html>
